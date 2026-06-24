@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploreza - Premium Layout</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper 11 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+       1. GLOBAL HEADER SECTION (Responsive Navbar & Mobile Offcanvas)
+       ========================================================================== -->
+    <header class="explor-global-header">
+    <nav class="navbar navbar-expand-md">
+        <div class="navbar-container">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo-nobg.png" alt="Exploreza Logo">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#explorMobileMenu" aria-controls="explorMobileMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="explorDesktopNavbar">
+                <ul class="navbar-nav central-links">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+                    
+                    <li class="nav-item mega-dropdown-wrapper">
+                        <a class="nav-link dropdown-toggle" href="#">Trekking</a>
+                        <div class="mega-menu-panel">
+                            <div class="mega-menu-container">
+                                <div class="mega-menu-left">
+                                    <h3 class="mega-menu-title">Trekking</h3>
+                                </div>
+                                <div class="mega-menu-center">
+                                    <ul class="mega-menu-links">
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800">Langtang Region</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">Everest Region</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800">Kanchenjunga Region</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800">Dhaulagiri Region</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800">Makalu Region</a></li>
+                                        <li><a href="#" data-mega-img="assets/images/image_887dca.jpg">Annapurna Region</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800">Manaslu Region</a></li>
+                                        <li class="view-all"><a href="#">View All Trekking</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-right">
+                                    <div class="mega-menu-image">
+                                        <img class="dynamic-mega-target" src="assets/images/image_887dca.jpg" alt="Featured Trekking">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="nav-item mega-dropdown-wrapper">
+                        <a class="nav-link dropdown-toggle" href="#">Expedition</a>
+                        <div class="mega-menu-panel">
+                            <div class="mega-menu-container">
+                                <div class="mega-menu-left">
+                                    <h3 class="mega-menu-title">Expedition</h3>
+                                </div>
+                                <div class="mega-menu-center">
+                                    <ul class="mega-menu-links">
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">Island Peak</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800">Mera Peak</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800">Lobuche East</a></li>
+                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800">Yala Peak</a></li>
+                                        <li class="view-all"><a href="#">View All Expeditions</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-right">
+                                    <div class="mega-menu-image">
+                                        <img class="dynamic-mega-target" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" alt="Featured Expedition">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
+
+                    <li class="nav-item dropdown-wrapper">
+                        <a class="nav-link dropdown-toggle" href="#">Company</a>
+                        <ul class="custom-dropdown">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Tours</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+                
+                <div class="desktop-cta">
+                    <div class="lang-selector-dropdown">
+                        <button class="lang-trigger-btn">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
+                            <span class="lang-text">EN</span>
+                        </button>
+                        <ul class="lang-dropdown-menu">
+                            <li>
+                                <a href="#en" class="lang-option active">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
+                                    <span>English</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#es" class="lang-option">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1ea-1f1f8.svg" class="lang-flag" alt="Español">
+                                    <span>Español</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#fr" class="lang-option">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1eb-1f1f7.svg" class="lang-flag" alt="Français">
+                                    <span>Français</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#de" class="lang-option">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1ea.svg" class="lang-flag" alt="Deutsch">
+                                    <span>Deutsch</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <a href="/booking" class="explor-btn-book">Booking</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="explorMobileMenu" aria-labelledby="explorMobileMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="explorMobileMenuLabel">EXPLOREZA</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="mobile-cta">
+                <div class="mobile-lang-row">
+                    <span class="mobile-lang-label">Language:</span>
+                    <div class="lang-selector-dropdown">
+                        <button class="lang-trigger-btn">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
+                            <span class="lang-text">EN</span>
+                        </button>
+                    </div>
+                </div>
+                <a href="/booking" class="explor-btn-book">Booking</a>
+            </div>
+        </div>
+    </div>
+</header>
+    <!-- ==========================================================================
+     2. HERO BANNER SLIDER SECTION
+     ========================================================================== -->
+<section class="explor-hero-slider">
+    <div class="swiper explorSwiper">
+        <div class="swiper-wrapper">
+            
+            <!-- Slide Item 1 -->
+            <div class="swiper-slide">
+                <div class="explor-bg-box">
+                    <div class="explor-bg-img" style="background-image: url('https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=1920');"></div>
+                </div>
+                <div class="hero-container">
+                    <div class="hero-row">
+                        <div class="hero-content">
+                            <h1 class="explor-main-title">Deep Caves</h1>
+                            <h2 class="explor-sub-title">Underground wonders</h2>
+                            <p class="explor-desc">
+                                Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa justo.
+                            </p>
+                            <div class="explor-price-tag">
+                                <span class="price-lbl">Package starting</span>
+                                <span class="price-val">$395.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide Item 2 -->
+            <div class="swiper-slide">
+                <div class="explor-bg-box">
+                    <div class="explor-bg-img" style="background-image: url('assets/images/1.jpg');"></div>
+                </div>
+                <div class="hero-container">
+                    <div class="hero-row">
+                        <div class="hero-content">
+                            <h1 class="explor-main-title">Wilderness</h1>
+                            <h2 class="explor-sub-title">Journey through nature</h2>
+                            <p class="explor-desc">
+                                Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa justo.
+                            </p>
+                            <div class="explor-price-tag">
+                                <span class="price-lbl">Package starting</span>
+                                <span class="price-val">$495.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================================================
+   ABOUT US SECTION
+   ========================================================================== -->
+<section class="exp-abt-section">
+    <div class="abt-container">
+        <div class="abt-row">
+            
+            <!-- Left Asymmetric Images Column -->
+            <div class="exp-abt-img-col-left">
+                <div class="exp-abt-img-wrap-left">
+                    <!-- Tall Background Image -->
+                    <div class="exp-abt-img-tall">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600" alt="Travelers by water">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Text Content Column -->
+            <div class="exp-abt-content-col">
+                <h2 class="exp-abt-title">
+                    We Are Your Gateway <br> To Adventure
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut alias commodi mollitia saepe, recusandae sunt repudiandae debitis deleniti vero labore est illo temporibus blanditiis fugit rerum nemo! Ipsum repellat quas dolores praesentium, blanditiis atque libero nulla reprehenderit explicabo placeat ut ad aut quasi maiores. Inventore quo iure animi asperiores. Dolor expedita voluptatem veritatis rerum quidem earum assumenda voluptatum consequatur similique.
+                </p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis ipsa voluptatem laboriosam nisi ratione accusantium consequuntur ut ab fuga id quibusdam odit expedita ipsum officiis repudiandae, explicabo maiores dicta.</p>
+                <a href="#readmore" class="exp-abt-btn">Read More</a>
+            </div>
+
+            <!-- Right Asymmetric Images Column -->
+            <div class="exp-abt-img-col-right">
+                <div class="exp-abt-img-wrap-right">
+                    <!-- Higher Overlapping Background Image -->
+                    <div class="exp-abt-img-overlap-high">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Mountain peaks">
+                    </div>
+                    <!-- Main Forward Lower Image -->
+                    <div class="exp-abt-img-square">
+                        <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=600" alt="Group of friends on a trip">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ==========================================================================
+   GLANCE / STATS SECTION
+   ========================================================================== -->
+<section class="resort-glance-section">
+    <div class="glance-container">
+        
+        <div class="glance-header">
+            <span class="resort-glance-line"></span>
+            <span class="resort-glance-sub">Exploreza At A Glance</span>
+            <span class="resort-glance-line"></span>
+        </div>
+
+        <div class="glance-grid">
+            
+            <div class="resort-glance-col">
+                <div class="glance-item-box">
+                    <span class="resort-glance-num" data-target="83">83</span>
+                    <span class="resort-glance-lbl">Total<br>Reviews</span>
+                </div>
+            </div>
+
+            <div class="resort-glance-col">
+                <div class="glance-item-box">
+                    <span class="resort-glance-num" data-target="42">42</span>
+                    <span class="resort-glance-lbl">Years Of<br>Experience</span>
+                </div>
+            </div>
+
+            <div class="resort-glance-col">
+                <div class="glance-item-box">
+                    <span class="resort-glance-num" data-target="67">67</span>
+                    <span class="resort-glance-lbl">Luxury<br>Rooms</span>
+                </div>
+            </div>
+
+            <div class="resort-glance-col">
+                <div class="glance-item-box">
+                    <span class="resort-glance-num" data-target="98">98%</span>
+                    <span class="resort-glance-lbl">Satisfaction<br>Rate</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Dependencies JS Assets -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
