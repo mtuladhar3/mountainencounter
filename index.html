@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploreza - Premium Layout</title>
+    <title>Mountain Encounter</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Swiper 11 CSS -->
@@ -11,308 +12,1081 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Questrial&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
     <!-- ==========================================================================
        1. GLOBAL HEADER SECTION (Responsive Navbar & Mobile Offcanvas)
        ========================================================================== -->
     <header class="explor-global-header">
-    <nav class="navbar navbar-expand-md">
-        <div class="navbar-container">
-            <a class="navbar-brand" href="#">
-                <img src="assets/images/logo-nobg.png" alt="Exploreza Logo">
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#explorMobileMenu" aria-controls="explorMobileMenu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-md">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo-nobg.png" alt="Exploreza Logo">
+                </a>
 
-            <div class="collapse navbar-collapse" id="explorDesktopNavbar">
-                <ul class="navbar-nav central-links">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
-                    
-                    <li class="nav-item mega-dropdown-wrapper">
-                        <a class="nav-link dropdown-toggle" href="#">Trekking</a>
-                        <div class="mega-menu-panel">
-                            <div class="mega-menu-container">
-                                <div class="mega-menu-left">
-                                    <h3 class="mega-menu-title">Trekking</h3>
-                                </div>
-                                <div class="mega-menu-center">
-                                    <ul class="mega-menu-links">
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800">Langtang Region</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">Everest Region</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800">Kanchenjunga Region</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800">Dhaulagiri Region</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800">Makalu Region</a></li>
-                                        <li><a href="#" data-mega-img="assets/images/image_887dca.jpg">Annapurna Region</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800">Manaslu Region</a></li>
-                                        <li class="view-all"><a href="#">View All Trekking</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-right">
-                                    <div class="mega-menu-image">
-                                        <img class="dynamic-mega-target" src="assets/images/image_887dca.jpg" alt="Featured Trekking">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item mega-dropdown-wrapper">
-                        <a class="nav-link dropdown-toggle" href="#">Expedition</a>
-                        <div class="mega-menu-panel">
-                            <div class="mega-menu-container">
-                                <div class="mega-menu-left">
-                                    <h3 class="mega-menu-title">Expedition</h3>
-                                </div>
-                                <div class="mega-menu-center">
-                                    <ul class="mega-menu-links">
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800">Island Peak</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800">Mera Peak</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800">Lobuche East</a></li>
-                                        <li><a href="#" data-mega-img="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800">Yala Peak</a></li>
-                                        <li class="view-all"><a href="#">View All Expeditions</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-menu-right">
-                                    <div class="mega-menu-image">
-                                        <img class="dynamic-mega-target" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800" alt="Featured Expedition">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
-
-                    <li class="nav-item dropdown-wrapper">
-                        <a class="nav-link dropdown-toggle" href="#">Company</a>
-                        <ul class="custom-dropdown">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Tours</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Reviews</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-                
-                <div class="desktop-cta">
+                <div class="mobile-controls d-flex d-md-none align-items-center gap-2">
                     <div class="lang-selector-dropdown">
                         <button class="lang-trigger-btn">
-                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
-                            <span class="lang-text">EN</span>
-                        </button>
-                        <ul class="lang-dropdown-menu">
-                            <li>
-                                <a href="#en" class="lang-option active">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
-                                    <span>English</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#es" class="lang-option">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1ea-1f1f8.svg" class="lang-flag" alt="Español">
-                                    <span>Español</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#fr" class="lang-option">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1eb-1f1f7.svg" class="lang-flag" alt="Français">
-                                    <span>Français</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#de" class="lang-option">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1ea.svg" class="lang-flag" alt="Deutsch">
-                                    <span>Deutsch</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <a href="/booking" class="explor-btn-book">Booking</a>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="explorMobileMenu" aria-labelledby="explorMobileMenuLabel">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="explorMobileMenuLabel">EXPLOREZA</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="mobile-cta">
-                <div class="mobile-lang-row">
-                    <span class="mobile-lang-label">Language:</span>
-                    <div class="lang-selector-dropdown">
-                        <button class="lang-trigger-btn">
-                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg" class="lang-flag" alt="English">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                class="lang-flag" alt="English">
                             <span class="lang-text">EN</span>
                         </button>
                     </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#explorMobileMenu" aria-controls="explorMobileMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                 </div>
-                <a href="/booking" class="explor-btn-book">Booking</a>
+
+                <div class="collapse navbar-collapse" id="explorDesktopNavbar">
+                    <ul class="navbar-nav central-links">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+
+                        <li class="nav-item mega-dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Trekking</a>
+                            <div class="trek-nav-panel">
+                                <div class="trek-nav-grid">
+                                    <div class="trek-nav-branding">
+                                        <h3 class="trek-brand-header">Trekking</h3>
+                                    </div>
+                                    <div class="trek-nav-selection">
+                                        <ul class="trek-destination-list">
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800"
+                                                    data-trek-name="Langtang Valley Trek" data-duration="9 Days"
+                                                    data-level="Moderate" data-elev="3,870m">Langtang Region</a></li>
+                                            <li><a href="#" class="trek-destination-item trek-item-active"
+                                                    data-peak-view="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                    data-trek-name="Everest Base Camp & Gokyo Lakes"
+                                                    data-duration="19 Days" data-level="Strenuous"
+                                                    data-elev="5,545m">Everest Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800"
+                                                    data-trek-name="Kanchenjunga Circuit Trek" data-duration="21 Days"
+                                                    data-level="Hard" data-elev="5,140m">Kanchenjunga Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800"
+                                                    data-trek-name="Around Dhaulagiri Trek" data-duration="18 Days"
+                                                    data-level="Hard" data-elev="5,360m">Dhaulagiri Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800"
+                                                    data-trek-name="Makalu Base Camp Odyssey" data-duration="22 Days"
+                                                    data-level="Strenuous" data-elev="5,106m">Makalu Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="assets/images/image_887dca.jpg"
+                                                    data-trek-name="Annapurna Sanctuary Trek" data-duration="14 Days"
+                                                    data-level="Moderate" data-elev="4,130m">Annapurna Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+                                                    data-trek-name="Manaslu Circuit Trek" data-duration="16 Days"
+                                                    data-level="Strenuous" data-elev="5,160m">Manaslu Region</a></li>
+                                            <li class="trek-global-link"><a href="#">View All Trekking</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="trek-nav-showcase">
+                                        <div class="trek-image-viewport">
+                                            <img class="trek-dynamic-image"
+                                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                alt="Scenery Preview">
+                                            <div class="trek-floating-card">
+                                                <span class="trek-card-label">Featured Trek:</span>
+                                                <h4 class="trek-card-title">Everest Base Camp & Gokyo Lakes</h4>
+                                                <p class="trek-card-specs"><span id="trek-stat-days">19 Days</span> |
+                                                    <span id="trek-stat-diff">Strenuous</span>
+                                                </p>
+                                                <a href="#" class="trek-card-action">Explore Itinerary &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mega-dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Expedition</a>
+                            <div class="trek-nav-panel">
+                                <div class="trek-nav-grid">
+                                    <div class="trek-nav-branding">
+                                        <h3 class="trek-brand-header">Expedition</h3>
+                                    </div>
+                                    <div class="trek-nav-selection">
+                                        <ul class="trek-destination-list">
+                                            <li><a href="#" class="trek-destination-item trek-item-active"
+                                                    data-peak-view="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                    data-trek-name="Island Peak Climbing" data-duration="14 Days"
+                                                    data-level="Strenuous" data-elev="6,189m">Island Peak</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800"
+                                                    data-trek-name="Mera Peak Climbing" data-duration="17 Days"
+                                                    data-level="Moderate" data-elev="6,476m">Mera Peak</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800"
+                                                    data-trek-name="Lobuche East Climbing" data-duration="15 Days"
+                                                    data-level="Strenuous" data-elev="6,119m">Lobuche East</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800"
+                                                    data-trek-name="Yala Peak Expedition" data-duration="11 Days"
+                                                    data-level="Easy" data-elev="5,520m">Yala Peak</a></li>
+                                            <li class="trek-global-link"><a href="#">View All Expeditions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="trek-nav-showcase">
+                                        <div class="trek-image-viewport">
+                                            <img class="trek-dynamic-image"
+                                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                alt="Expedition Preview">
+                                            <div class="trek-floating-card">
+                                                <span class="trek-card-label">Featured Peak:</span>
+                                                <h4 class="trek-card-title">Island Peak Climbing</h4>
+                                                <p class="trek-card-specs"><span id="trek-stat-days">14 Days</span> |
+                                                    <span id="trek-stat-diff">Strenuous</span>
+                                                </p>
+                                                <a href="#" class="trek-card-action">Explore Itinerary &rarr;</a>
+                                            </div>
+                                        </div>
+                                        <div class="trek-sidebar-ribbon">
+                                            <span id="ribbon-difficulty">[STRENUOUS]</span>
+                                            <span id="ribbon-duration">[14 DAYS]</span>
+                                            <span id="ribbon-altitude">[MAX ALT: 6,189M]</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
+
+                        <li class="nav-item dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Company</a>
+                            <ul class="custom-dropdown">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Tours</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Reviews</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+
+                    <div class="desktop-cta d-none d-md-flex">
+                        <div class="lang-selector-dropdown">
+                            <button class="lang-trigger-btn">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                    class="lang-flag" alt="English">
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <ul class="lang-dropdown-menu">
+                                <li><a href="#en" class="lang-option active"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                            class="lang-flag" alt="English"> <span>English</span></a></li>
+                                <li><a href="#es" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1ea-1f1f8.svg"
+                                            class="lang-flag" alt="Español"> <span>Español</span></a></li>
+                                <li><a href="#fr" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1eb-1f1f7.svg"
+                                            class="lang-flag" alt="Français"> <span>Français</span></a></li>
+                                <li><a href="#de" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1ea.svg"
+                                            class="lang-flag" alt="Deutsch"> <span>Deutsch</span></a></li>
+                            </ul>
+                        </div>
+                        <a href="/booking" class="explor-btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="explorMobileMenu"
+            aria-labelledby="explorMobileMenuLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="explorMobileMenuLabel">EXPLOREZA</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="mobile-nav-links mb-4">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Destinations</a></li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileTrekDropdown" aria-expanded="false">
+                                Trekking
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileTrekDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">Langtang Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Everest Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Kanchenjunga Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Dhaulagiri Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Makalu Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Annapurna Region</a></li>
+                                    <li><a class="nav-link py-1" href="#">Manaslu Region</a></li>
+                                    <li><a class="nav-link py-1 fw-bold " href="#">View All Trekking</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileExpDropdown" aria-expanded="false">
+                                Expedition
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileExpDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">Island Peak</a></li>
+                                    <li><a class="nav-link py-1" href="#">Mera Peak</a></li>
+                                    <li><a class="nav-link py-1" href="#">Lobuche East</a></li>
+                                    <li><a class="nav-link py-1" href="#">Yala Peak</a></li>
+                                    <li><a class="nav-link py-1 fw-bold" href="#">View All Expeditions</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileCompanyDropdown" aria-expanded="false">
+                                Company
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileCompanyDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">About Us</a></li>
+                                    <li><a class="nav-link py-1" href="#">Tours</a></li>
+                                    <li><a class="nav-link py-1" href="#">Blog</a></li>
+                                    <li><a class="nav-link py-1" href="#">Reviews</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="mobile-cta border-top pt-3">
+                    <a href="/booking" class="explor-btn-book w-100 text-center">Booking</a>
+                </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
     <!-- ==========================================================================
      2. HERO BANNER SLIDER SECTION
      ========================================================================== -->
-<section class="explor-hero-slider">
-    <div class="swiper explorSwiper">
-        <div class="swiper-wrapper">
-            
-            <!-- Slide Item 1 -->
-            <div class="swiper-slide">
-                <div class="explor-bg-box">
-                    <div class="explor-bg-img" style="background-image: url('https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=1920');"></div>
-                </div>
-                <div class="hero-container">
-                    <div class="hero-row">
-                        <div class="hero-content">
-                            <h1 class="explor-main-title">Deep Caves</h1>
-                            <h2 class="explor-sub-title">Underground wonders</h2>
-                            <p class="explor-desc">
-                                Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa justo.
-                            </p>
-                            <div class="explor-price-tag">
-                                <span class="price-lbl">Package starting</span>
-                                <span class="price-val">$395.00</span>
+    <section class="explor-hero-slider">
+        <div class="swiper explorSwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide Item 1 -->
+                <div class="swiper-slide">
+                    <div class="explor-bg-box">
+                        <div class="explor-bg-img"
+                            style="background-image: url('https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=1920');">
+                        </div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="hero-row">
+                            <div class="hero-content">
+                                <p class="explor-main-title">Adventure </p>
+                                <p class="explor-sub-title">Awaits in Every Step</p>
+                                <p class="explor-desc">
+                                    Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa
+                                    justo.
+                                </p>
+                                <div class="explor-price-tag">
+                                    <span class="price-lbl">Package starting</span>
+                                    <span class="price-val">$395.00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Slide Item 2 -->
-            <div class="swiper-slide">
-                <div class="explor-bg-box">
-                    <div class="explor-bg-img" style="background-image: url('assets/images/1.jpg');"></div>
-                </div>
-                <div class="hero-container">
-                    <div class="hero-row">
-                        <div class="hero-content">
-                            <h1 class="explor-main-title">Wilderness</h1>
-                            <h2 class="explor-sub-title">Journey through nature</h2>
-                            <p class="explor-desc">
-                                Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa justo.
-                            </p>
-                            <div class="explor-price-tag">
-                                <span class="price-lbl">Package starting</span>
-                                <span class="price-val">$495.00</span>
+                <!-- Slide Item 2 -->
+                <div class="swiper-slide">
+                    <div class="explor-bg-box">
+                        <div class="explor-bg-img" style="background-image: url('assets/images/1.jpg');"></div>
+                    </div>
+                    <div class="hero-container">
+                        <div class="hero-row">
+                            <div class="hero-content">
+                                <h1 class="explor-main-title">Curated </h1>
+                                <h2 class="explor-sub-title">Himalayan Adventures</h2>
+                                <p class="explor-desc">
+                                    Lorem ipsum dolor sit amet consectetur massa pulvinar luctus amet consectetur massa
+                                    justo.
+                                </p>
+                                <div class="explor-price-tag">
+                                    <span class="price-lbl">Package starting</span>
+                                    <span class="price-val">$495.00</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- ==========================================================================
+    <!-- ==========================================================================
    ABOUT US SECTION
    ========================================================================== -->
-<section class="exp-abt-section">
-    <div class="abt-container">
-        <div class="abt-row">
+    <section class="exp-abt-section">
+        <div class="abt-container">
+            <div class="abt-row">
+
+                <!-- Left Asymmetric Images Column -->
+                <div class="exp-abt-img-col-left">
+                    <div class="exp-abt-img-wrap-left">
+                        <!-- Tall Background Image -->
+                        <div class="exp-abt-img-tall">
+                            <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600"
+                                alt="Travelers by water">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Center Text Content Column -->
+                <div class="exp-abt-content-col">
+                    <h2 class="exp-abt-title">
+                        Elevating Mountain Adventures
+                    </h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut alias commodi mollitia saepe,
+                        recusandae sunt repudiandae debitis deleniti vero labore est illo temporibus blanditiis fugit
+                        rerum nemo! Ipsum repellat quas dolores praesentium, blanditiis atque libero nulla reprehenderit
+                        explicabo placeat ut ad aut quasi maiores. Inventore quo iure animi asperiores. Dolor expedita
+                        voluptatem veritatis rerum quidem earum assumenda voluptatum consequatur similique.
+                    </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis ipsa voluptatem
+                        laboriosam nisi ratione accusantium consequuntur ut ab fuga id quibusdam odit expedita ipsum
+                        officiis repudiandae, explicabo maiores dicta.</p>
+                    <a href="#readmore" class="exp-abt-btn">Read More</a>
+                </div>
+
+                <!-- Right Asymmetric Images Column -->
+                <div class="exp-abt-img-col-right">
+                    <div class="exp-abt-img-wrap-right">
+                        <!-- Higher Overlapping Background Image -->
+                        <div class="exp-abt-img-overlap-high">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600"
+                                alt="Mountain peaks">
+                        </div>
+                        <!-- Main Forward Lower Image -->
+                        <div class="exp-abt-img-square">
+                            <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=600"
+                                alt="Group of friends on a trip">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+   GLANCE / STATS SECTION
+   ========================================================================== -->
+    <section class="resort-glance-section">
+        <div class="glance-container">
+
+            <div class="glance-header">
+                <span class="resort-glance-line"></span>
+                <span class="resort-glance-sub">Exploreza At A Glance</span>
+                <span class="resort-glance-line"></span>
+            </div>
+
+            <div class="glance-grid">
+
+                <div class="resort-glance-col">
+                    <div class="glance-item-box">
+                        <span class="resort-glance-num" data-target="83">83</span>
+                        <span class="resort-glance-lbl">Total<br>Reviews</span>
+                    </div>
+                </div>
+
+                <div class="resort-glance-col">
+                    <div class="glance-item-box">
+                        <span class="resort-glance-num" data-target="42">42</span>
+                        <span class="resort-glance-lbl">Years Of<br>Experience</span>
+                    </div>
+                </div>
+
+                <div class="resort-glance-col">
+                    <div class="glance-item-box">
+                        <span class="resort-glance-num" data-target="67">67</span>
+                        <span class="resort-glance-lbl">Luxury<br>Rooms</span>
+                    </div>
+                </div>
+
+                <div class="resort-glance-col">
+                    <div class="glance-item-box">
+                        <span class="resort-glance-num" data-target="98">98%</span>
+                        <span class="resort-glance-lbl">Satisfaction<br>Rate</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <!-- <section class="vibes-discover-section py-5">
+        <div class="container py-4">
+
+            <div class="row justify-content-center text-center mb-5 vibe-fade-element">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="vib-badge-wrapper mb-2 d-flex align-items-center justify-content-center gap-2">
+                        <span class="vib-badge-icon">💎</span>
+                        <span class="vib-badge-text">Trip Vibes</span>
+                    </div>
+                    <h2 class="vib-display-title mb-3">Pick Your Perfect Vibe</h2>
+                    <p class="vib-sub-description">Adventure, luxury, culture — your choice, your way.</p>
+                </div>
+            </div>
+
+            <div class="row g-5 justify-content-center">
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <h3><a href="/index-3">Adventure Lite</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image"><img alt="Image" width="270" height="422" decoding="async"
+                                    data-nimg="1" style="/* color:transparent; */"
+                                    srcset="/_next/image?url=%2Fassets%2Fimages%2Fresource%2Fvibes-1.jpg&amp;w=384&amp;q=75 1x, /_next/image?url=%2Fassets%2Fimages%2Fresource%2Fvibes-1.jpg&amp;w=640&amp;q=75 2x"
+                                    src="/_next/image?url=%2Fassets%2Fimages%2Fresource%2Fvibes-1.jpg&amp;w=640&amp;q=75">
+                            </figure>
+                            <div class="link"><a href="/index-3"><i class="flaticon-arrow"></i></a></div>
+                        </div><span class="text">25+ Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-blue"></span>
+                            <h3><a href="/index-3">Island Vibes</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="Island Vibes" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">10+ Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-orange"></span>
+                            <h3><a href="/index-3">City Breaks</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="City Breaks" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">32+ Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-green-dark"></span>
+                            <h3><a href="/index-3">Wildlife Trails</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="Wildlife Trails" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">18+ Destinations</span>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-blue"></span>
+                            <h3><a href="/index-3">Island Vibes</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="Island Vibes" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">10+ Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-orange"></span>
+                            <h3><a href="/index-3">City Breaks</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="City Breaks" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">32+ Destinations</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="vibes-block-one">
+                        <div class="title-text">
+                            <span class="vib-meta-line line-green-dark"></span>
+                            <h3><a href="/index-3">Wildlife Trails</a></h3>
+                        </div>
+                        <div class="image-box">
+                            <figure class="image">
+                                <img alt="Wildlife Trails" width="270" height="422" decoding="async"
+                                    src="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=640"
+                                    class="vib-masked-img">
+                            </figure>
+                            <div class="link">
+                                <a href="/index-3"><i class="flaticon-arrow">→</i></a>
+                            </div>
+                        </div>
+                        <span class="text">18+ Destinations</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+    <section class="region-section">
+        <div class="container">
+            <div class="nt-section-header d-flex flex-column flex-md-row justify-content-md-between align-items-start">
+  <h2 class="nt-section-title m-0">Our <span>Exclusive</span> Destinations</h2>
+  <p class="nt-section-desc m-0 text-muted">Explore handpicked trekking routes through pristine Himalayas, vibrant local cultures, and breathtaking landscapes. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel in sunt dolore eius commodi ea culpa accusantium praesentium reiciendis fuga!
+  </p>
+</div>
+            <div class="nepal-trek-gallery-wrapper">
+
+                <div class="nt-gallery-card active"
+                    style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">10+ Packages</div>
+                    <div class="nt-badge-top-center">10+ Packages</div>
+                    <div class="nt-collapsed-title">Everest</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Everest Base Camp</h3>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1585016495481-91613a3ab1bc?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">08+ Packages</div>
+                    <div class="nt-badge-top-center">08+ Packages</div>
+                    <div class="nt-collapsed-title">Annapurna</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Annapurna Circuit</h3>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">07+ Packages</div>
+                    <div class="nt-badge-top-center">07+ Packages</div>
+                    <div class="nt-collapsed-title">Langtang</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Langtang Valley</h3>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">12+ Packages</div>
+                    <div class="nt-badge-top-center">12+ Packages</div>
+                    <div class="nt-collapsed-title">Manaslu</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Manaslu Circuit</h3>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1627894483216-2138af692e32?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">05+ Packages</div>
+                    <div class="nt-badge-top-center">05+ Packages</div>
+                    <div class="nt-collapsed-title">Mustang</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Upper Mustang</h3>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">06+ Packages</div>
+                    <div class="nt-badge-top-center">06+ Packages</div>
+                    <div class="nt-collapsed-title">Dolpo</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Upper Dolpo</h3>
+                        <p class="nt-price-tag">Starts From $1,699</p>
+                    </div>
+                </div>
+
+                <div class="nt-gallery-card"
+                    style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80');">
+                    <div class="nt-badge-top-left">04+ Packages</div>
+                    <div class="nt-badge-top-center">04+ Packages</div>
+                    <div class="nt-collapsed-title">Kanchenjunga</div>
+                    <div class="nt-expanded-content">
+                        <h3 class="nt-main-title">Kanchenjunga Base</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section class="adv-facilities-section">
+        <div class="adv-desktop-bg-layer d-none d-lg-block" id="advDesktopBg"
+            style="background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1600');">
+        </div>
+        <div class="adv-desktop-overlay-mask d-none d-lg-block"></div>
+
+        <div class="adv-desktop-master-title-wrapper d-none d-lg-flex">
+            <h2 class="adv-desktop-master-title">
+                <span id="advDesktopMasterTitle">ACTIVITIES</span>
+            </h2>
+        </div>
+
+        <div class="container-fluid p-0 h-100 position-relative adv-z-index">
+            <div class="row g-0 h-100 m-0">
+
+                <div class="col-12 adv-facility-col d-block d-lg-none" data-mobile-title="ACTIVITIES"
+                    style="--mobile-bg: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1200');">
+                    <div class="adv-col-border-line"></div>
+                    <div class="adv-mobile-card-overlay"></div>
+                    <div class="adv-content-box">
+                        <h2 class="adv-mobile-scrolled-title">ACTIVITIES</h2>
+                        <h4 class="adv-item-label">OUR FACILITIES</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 adv-facility-col"
+                    data-bg="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1200"
+                    data-desktop-title="TREKKING"
+                    style="--mobile-bg: url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=1200');">
+                    <div class="adv-col-border-line"></div>
+                    <div class="adv-mobile-card-overlay d-block d-lg-none"></div>
+
+                    <div class="adv-content-box">
+                        <h2 class="adv-mobile-scrolled-title d-block d-lg-none">TREKKING</h2>
+                        <h4 class="adv-item-label">TREKKING</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 adv-facility-col"
+                    data-bg="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1200"
+                    data-desktop-title="TOURS"
+                    style="--mobile-bg: url('https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=1200');">
+                    <div class="adv-col-border-line"></div>
+                    <div class="adv-mobile-card-overlay d-block d-lg-none"></div>
+
+                    <div class="adv-content-box">
+                        <h2 class="adv-mobile-scrolled-title d-block d-lg-none">TOURS</h2>
+                        <h4 class="adv-item-label">TOURS</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 adv-facility-col"
+                    data-bg="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=1200"
+                    data-desktop-title="PEAK CLIMBING"
+                    style="--mobile-bg: url('https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=1200');">
+                    <div class="adv-col-border-line"></div>
+                    <div class="adv-mobile-card-overlay d-block d-lg-none"></div>
+
+                    <div class="adv-content-box">
+                        <h2 class="adv-mobile-scrolled-title d-block d-lg-none">PEAK CLIMBING</h2>
+                        <h4 class="adv-item-label">PEAK CLIMBING</h4>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-12 adv-facility-col"
+                    data-bg="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200"
+                    data-desktop-title="ADVENTURE ACTIVITIES"
+                    style="--mobile-bg: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200');">
+                    <div class="adv-col-border-line"></div>
+                    <div class="adv-mobile-card-overlay d-block d-lg-none"></div>
+
+                    <div class="adv-content-box">
+                        <h2 class="adv-mobile-scrolled-title d-block d-lg-none">ADVENTURE ACTIVITIES</h2>
+                        <h4 class="adv-item-label">ADVENTURE ACTIVITIES</h4>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="ets-tours-section">
+    <div class="container mb-5">
+        <div class="row align-items-end">
+            <div class="col-md-8">
+                <h2 class="nt-section-title mb-4">Explore Our Tours</h2>
+                <p class="nt-section-desc">Dive into adventure with our curated selection of tours, offering unforgettable experiences in destinations around the globe.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-4 mt-md-0">
+                <div class="ets-header-nav-container">
+                    <div class="swiper-button-prev ets-header-nav-btn"></div>
+                    <div class="swiper-button-next ets-header-nav-btn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ets-slider-wrapper-full">
+        <div class="swiper ets-tours-slider">
+            <div class="swiper-wrapper">
+                
+                <div class="swiper-slide">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Discover India</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">We believe that human-centered design are revolutionizing brand experiences.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 6 Days</span>
+                            <span class="ets-meta-item">From 1,400$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Discover India" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Safari Tour</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">Reduce your capital and operating costs, while modernizing your IT.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 5 Days</span>
+                            <span class="ets-meta-item">From 1,200$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80" alt="Safari Tour" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Mexico Explore</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">We believe that technology design are revolutionizing brand experiences.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 3 Days</span>
+                            <span class="ets-meta-item">From 800$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512813583145-baaa340ef29f?auto=format&fit=crop&w=600&q=80" alt="Mexico Explore" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Exotic Adventure</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">Process of designing, building, and maintaining software applications.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 5 Days</span>
+                            <span class="ets-meta-item">From 950$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Exotic Adventure" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hos-offer-section">
+    <div class="container position-relative">
+        <div class="row align-items-center">
             
-            <!-- Left Asymmetric Images Column -->
-            <div class="exp-abt-img-col-left">
-                <div class="exp-abt-img-wrap-left">
-                    <!-- Tall Background Image -->
-                    <div class="exp-abt-img-tall">
-                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=600" alt="Travelers by water">
-                    </div>
+            <div class="col-lg-6 col-12 mb-5 mb-lg-0">
+                <h4 class="hos-tagline">Special <span>Nature</span> Tour Offer</h4>
+                <h1 class="hos-main-title">Discount 20-30%</h1>
+                
+                <p class="hos-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias aperiam at, aut commodi corporis dolor ducimus labore magnam mollitia natus porro possimus quae sit tenetur veniam veritatis voluptate voluptatem!</p>
+                
+                <div class="hos-price-row">
+                    <span class="hos-price-old">$600</span>
+                    <span class="hos-price-new">$420</span>
+                </div>
+                
+
+                <div class="hos-action-bar">
+                    <a href="#" class="hos-btn-buy">Buy Now</a>
+                    <div class="hos-meta-chip">7 Days | 8 Nights</div>
                 </div>
             </div>
 
-            <!-- Center Text Content Column -->
-            <div class="exp-abt-content-col">
-                <h2 class="exp-abt-title">
-                    We Are Your Gateway <br> To Adventure
-                </h2>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut alias commodi mollitia saepe, recusandae sunt repudiandae debitis deleniti vero labore est illo temporibus blanditiis fugit rerum nemo! Ipsum repellat quas dolores praesentium, blanditiis atque libero nulla reprehenderit explicabo placeat ut ad aut quasi maiores. Inventore quo iure animi asperiores. Dolor expedita voluptatem veritatis rerum quidem earum assumenda voluptatum consequatur similique.
-                </p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias reiciendis ipsa voluptatem laboriosam nisi ratione accusantium consequuntur ut ab fuga id quibusdam odit expedita ipsum officiis repudiandae, explicabo maiores dicta.</p>
-                <a href="#readmore" class="exp-abt-btn">Read More</a>
-            </div>
-
-            <!-- Right Asymmetric Images Column -->
-            <div class="exp-abt-img-col-right">
-                <div class="exp-abt-img-wrap-right">
-                    <!-- Higher Overlapping Background Image -->
-                    <div class="exp-abt-img-overlap-high">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=600" alt="Mountain peaks">
-                    </div>
-                    <!-- Main Forward Lower Image -->
-                    <div class="exp-abt-img-square">
-                        <img src="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=600" alt="Group of friends on a trip">
+            <div class="col-lg-5 offset-lg-1 col-12 position-relative">
+                <div class="hos-video-frame-stack">
+                    <div class="hos-video-frame-wrapper">
+                        <div class="hos-media-container">
+                            <img src="https://images.unsplash.com/photo-1609137144813-9118e93892dc?auto=format&fit=crop&w=800&q=80" alt="Special Offer Destination" class="hos-cover-img">
+                            <button class="hos-play-btn" aria-label="Play Tour Video">
+                                <div class="hos-play-icon"></div>
+                            </button>
+                        </div>
                     </div>
                 </div>
+                <div class="hos-vertical-ribbon">Limited Time</div>
             </div>
 
         </div>
     </div>
 </section>
 
-<!-- ==========================================================================
-   GLANCE / STATS SECTION
-   ========================================================================== -->
-<section class="resort-glance-section">
-    <div class="glance-container">
-        
-        <div class="glance-header">
-            <span class="resort-glance-line"></span>
-            <span class="resort-glance-sub">Exploreza At A Glance</span>
-            <span class="resort-glance-line"></span>
+<section class="ets-tours-section">
+    <div class="container">
+        <div class="row align-items-end mb-5">
+            <div class="col-md-8">
+                <h2 class="nt-section-title mb-4">Explore Our Tours</h2>
+                <p class="nt-section-desc">Dive into adventure with our curated selection of tours, offering unforgettable experiences in destinations around the globe.</p>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a href="#" class="ets-btn-view-more">VIEW MORE</a>
+            </div>
+        </div>
+    
+
+            <div class="row">
+                
+                <div class="col-lg-3">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Discover India</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">We believe that human-centered design are revolutionizing brand experiences.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 6 Days</span>
+                            <span class="ets-meta-item">From 1,400$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=600&q=80" alt="Discover India" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Safari Tour</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">Reduce your capital and operating costs, while modernizing your IT.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 5 Days</span>
+                            <span class="ets-meta-item">From 1,200$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=600&q=80" alt="Safari Tour" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Mexico Explore</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">We believe that technology design are revolutionizing brand experiences.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 3 Days</span>
+                            <span class="ets-meta-item">From 800$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512813583145-baaa340ef29f?auto=format&fit=crop&w=600&q=80" alt="Mexico Explore" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3">
+                    <div class="ets-tour-card">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h3 class="ets-card-title">Exotic Adventure</h3>
+                            <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                        </div>
+                        <p class="ets-card-desc">Process of designing, building, and maintaining software applications.</p>
+                        <div class="ets-card-meta d-flex justify-content-between">
+                            <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 5 Days</span>
+                            <span class="ets-meta-item">From 950$</span>
+                        </div>
+                        <div class="ets-card-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" alt="Exotic Adventure" class="ets-card-img">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+    </div>
+</section>
+
+
+<section class="exact-hero-section">
+    <svg class="exact-map-svg-left" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M-20,160 Q60,40 180,130 T340,60" stroke="#CE6D52" stroke-width="1.2" stroke-dasharray="4,5"/>
+        <circle cx="180" cy="130" r="3.5" fill="#CE6D52"/>
+    </svg>
+    <svg class="exact-map-svg-right" viewBox="0 0 350 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20,60 Q140,170 240,50 T380,110" stroke="#CE6D52" stroke-width="1.2" stroke-dasharray="4,5"/>
+        <circle cx="240" cy="50" r="3.5" fill="#CE6D52"/>
+    </svg>
+
+    <div class="container ">
+        <h1 class="exact-hero-title">Discover Your Next<br><em>Adventure</em> Awaits</h1>
+    </div>
+
+    <div class="exact-gallery-container container-fluid">
+        <div class="exact-img-card exact-card-1">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=80" alt="Explorer sitting on mountain cliff ridge">
+        </div>
+        <div class="exact-img-card exact-card-2">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=500&q=80" alt="Woman checking travel route map details">
+        </div>
+        <div class="exact-img-card exact-card-3">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=500&q=80" alt="Aircraft wing over clouds graphic world overlay">
+        </div>
+        <div class="exact-img-card exact-card-4">
+            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=500&q=80" alt="Hiking through narrow mountain trails canyon">
+        </div>
+        <div class="exact-img-card exact-card-5">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=500&q=80" alt="Tropical coast palms sandy beach landscape">
+        </div>
+    </div>
+</section>
+
+<section class="exact-why-section">
+    <div class="container">
+
+        <div class="row g-4">
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">Personalized Itineraries</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">Expert Guidance</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><path d="M2 12h20"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">Exceptional Service</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">Safety and Security - Our Priority</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">24/7 Customer Support</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="exact-feature-card">
+                    <div class="exact-icon-box">
+                        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                    </div>
+                    <h3 class="exact-card-title">Memorable Experiences</h3>
+                    <p class="exact-card-desc">Our personalized itineraries are meticulously designed to cater to your individual preferences.</p>
+                </div>
+            </div>
         </div>
 
-        <div class="glance-grid">
-            
-            <div class="resort-glance-col">
-                <div class="glance-item-box">
-                    <span class="resort-glance-num" data-target="83">83</span>
-                    <span class="resort-glance-lbl">Total<br>Reviews</span>
-                </div>
-            </div>
-
-            <div class="resort-glance-col">
-                <div class="glance-item-box">
-                    <span class="resort-glance-num" data-target="42">42</span>
-                    <span class="resort-glance-lbl">Years Of<br>Experience</span>
-                </div>
-            </div>
-
-            <div class="resort-glance-col">
-                <div class="glance-item-box">
-                    <span class="resort-glance-num" data-target="67">67</span>
-                    <span class="resort-glance-lbl">Luxury<br>Rooms</span>
-                </div>
-            </div>
-
-            <div class="resort-glance-col">
-                <div class="glance-item-box">
-                    <span class="resort-glance-num" data-target="98">98%</span>
-                    <span class="resort-glance-lbl">Satisfaction<br>Rate</span>
-                </div>
-            </div>
-
-        </div>
     </div>
 </section>
 
     <!-- Dependencies JS Assets -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>

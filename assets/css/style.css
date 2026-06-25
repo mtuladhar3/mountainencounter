@@ -1,11 +1,16 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
-    background-color: #000000;
+    font-family: "Questrial", sans-serif;
+    background: #fff;
     overflow-x: hidden;
 }
-
+h1, h2, h3, h4, h5, h6, 
+.trek-brand-header, 
+.trek-card-title, 
+.offcanvas-title {
+    font-family: 'Playfair Display', serif;
+}
 /* ==========================================================================
    1. GLOBAL HEADER & NAVBAR LAYOUT
    ========================================================================== */
@@ -414,8 +419,8 @@ body, html {
    ========================================================================== */
 .explor-global-header .offcanvas {
     max-width: 300px;
-    background-color: var(--dark-accent) !important;
-    color: #ffffff;
+    background-color: #fff !important;
+    color: #000;
 }
 
 .explor-global-header .offcanvas-header {
@@ -431,9 +436,10 @@ body, html {
 }
 
 .explor-global-header .btn-close {
-    filter: invert(1) grayscale(1) brightness(2);
+    /* filter: invert(1) grayscale(1) brightness(2); */
     box-shadow: none;
-    background: transparent;
+    /* color:#000; */
+    /* background: transparent; */
     border: 0;
     cursor: pointer;
 }
@@ -526,7 +532,7 @@ body, html {
 }
 
 /* Banner Slider Base Setup */
-.explor-hero-slider, .swiper {
+.explor-hero-slider {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -594,7 +600,7 @@ body, html {
 
 /* Typography Content Engine */
 .explor-main-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     font-size: calc(2.4rem + 4.5vw);
     line-height: 1.1;
     letter-spacing: 0.14em;
@@ -668,6 +674,22 @@ body, html {
     .explor-btn-circle {
         width: 110px;
         height: 110px;
+    }
+    .nav-link:focus, .nav-link:hover {
+    color:#000;
+}
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+        color:#000;
+    }
+    .navbar-toggler-icon{
+        filter: brightness(1) contrast(0);
+    }
+    .nav-link{
+        color:#000;
+    }
+    .explor-btn-book {
+    border: 1px solid rgb(0 0 0 / 40%);
+    color: #000000;
     }
     .explor-hero-slider.is-shrinking .swiper-slide-active .explor-bg-box {
         width: 85%;
@@ -757,7 +779,7 @@ body, html {
 }
 
 .explor-hero-slider .explor-desc {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.884);
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     line-height: 1.6;
@@ -765,7 +787,7 @@ body, html {
 
 .explor-hero-slider .explor-price-tag .price-lbl {
     display: block;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.76);
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -779,10 +801,7 @@ body, html {
 /* ==========================================================================
    ABOUT US SECTION
    ========================================================================== */
-.exp-abt-section {
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-}
+
 
 .exp-abt-section .abt-row {
     display: flex;
@@ -1347,18 +1366,196 @@ body, html {
     margin-top: auto;
     padding-top: 1.5rem;
 }
+
+/* Core Panel Architecture */
+.trek-nav-panel {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f6f4ee; /* Clean ivory canvas cream background */
+    border-radius: 8px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px); /* Subtle slide down effect */
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+/* 3. Reveal the panel instantly when the user hovers over the parent wrapper */
+.mega-dropdown-wrapper:hover .trek-nav-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slides perfectly into position */
+}
+.trek-nav-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr 2fr;
+    min-height: 420px;
+}
+
+/* Left Label Area */
+.trek-nav-branding {
+    padding: 45px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.trek-brand-header {
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+/* Middle Navigation Links List */
+.trek-nav-selection {
+    padding: 35px 10px;
+    border-right: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.trek-destination-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.trek-destination-list li {
+    margin-bottom: 2px;
+}
+
+.trek-destination-item {
+    display: block;
+    padding: 10px 12px;
+    color: #3a3a3a;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-radius: 4px;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Active Highlight Box Design Matching Image State */
+.trek-destination-item:hover, 
+.trek-destination-item.trek-item-active {
+    background-color: #ebe7dc; 
+    color: #000;
+}
+
+/* .trek-destination-item::before {
+    content: '>';
+    font-weight: 700;
+    opacity: 0;
+    margin-right: -6px;
+    transition: all 0.2s ease;
+} */
+
+.trek-destination-item:hover::before, 
+.trek-destination-item.trek-item-active::before {
+    opacity: 1;
+    margin-right: 8px;
+}
+
+/* Bottom Actions Separator */
+.trek-global-link {
+    margin-top: 15px;
+    padding-top: 15px;
+    padding-left: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.trek-global-link a {
+    color: #c45e2e; /* Warm Earth Tone Accent */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-decoration: none;
+}
+
+/* Right Side Image Viewport Layout */
+.trek-nav-showcase {
+    display: grid;
+    grid-template-columns: 1fr;
+    background-color: #000;
+}
+
+.trek-image-viewport {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.trek-dynamic-image {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    transition: filter 0.3s ease, transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Floating Component Card Context styling */
+.trek-floating-card {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: rgba(0, 0, 0, 0.315);
+    backdrop-filter: blur(10px);
+    padding: 22px;
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+}
+
+.trek-card-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #cacaca;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.trek-card-title {
+    font-size: 1rem;
+    margin: 6px 0;
+    font-weight: 800;
+    color: #e0e0e0;
+    line-height: 1.35;
+}
+
+.trek-card-specs {
+    font-size: 12px;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+.trek-card-action {
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+
+
 /* About */
 /* Container Canvas Base Settings */
 .exp-abt-section {
     background-color: #faf8f5; /* Warm off-white canvas backdrop matched from image_7004e8.jpg */
     padding: 70px 0;
-    font-family: 'Inter', sans-serif;
     /* overflow: hidden; */
 }
 
 /* Typography Elements */
 .exp-abt-title {
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     color: #1a1a1a;
     font-size: 2.35rem;
     font-weight: 400;
@@ -1546,7 +1743,7 @@ body, html {
 }
 
 .resort-glance-heading {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size: calc(1.3rem + 1vw);
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -1577,7 +1774,7 @@ body, html {
 
 /* Massive background-style elegant counter digits */
 .resort-glance-num {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Playfair Display', sans-serif;
     font-size:100px;
     font-weight: 300;
     line-height: 1;
@@ -1613,3 +1810,1280 @@ body, html {
         margin-left: -5px;
     }
 }
+
+/* Activities */
+
+/* ==========================================================================
+   GLOBAL SETUP
+   ========================================================================== */
+.adv-facilities-section {
+    position: relative;
+    width: 100%;
+    background-color: #000;
+    overflow: hidden;
+}
+.adv-z-index {
+    z-index: 5;
+}
+
+/* ==========================================================================
+   DESKTOP LAYOUT (Min-width: 992px)
+   ========================================================================== */
+@media (min-width: 992px) {
+    .adv-facilities-section {
+        height: 100vh;
+        min-height: 600px;
+    }
+    .adv-desktop-bg-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s ease;
+        transform: scale(1);
+        z-index: 1;
+    }
+    .adv-facilities-section:hover .adv-desktop-bg-layer {
+        transform: scale(1.02);
+    }
+    .adv-desktop-overlay-mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.65) 100%);
+        z-index: 2;
+    }
+    .adv-desktop-master-title-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        z-index: 10;
+    }
+    .adv-desktop-master-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2.5rem, 8.5vw, 8rem);
+        color: #ffffff;
+        letter-spacing: 6px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin: 0;
+        text-align: center;
+    }
+    #advDesktopMasterTitle {
+        display: inline-block;
+        transition: opacity 0.22s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    #advDesktopMasterTitle.is-switching {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+    .adv-facilities-section .row {
+        flex-wrap: nowrap;
+        height: 100%;
+    }
+    .adv-facility-col {
+        position: relative;
+        height: 100%;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 40px 25px;
+        transition: background-color 0.4s ease;
+    }
+    .adv-facility-col:hover {
+        background-color: rgba(255, 255, 255, 0.04);
+    }
+    .adv-col-border-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.15);
+        z-index: 3;
+    }
+    .adv-facility-col:first-of-type .adv-col-border-line {
+        display: none; 
+    }
+}
+
+/* Global Grid Labels Components */
+.adv-content-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+}
+.adv-item-label {
+    position: absolute;
+    bottom: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(0.85rem, 2vw, 2.05rem);
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 2px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+@media (min-width: 992px) {
+    .adv-facility-col:hover .adv-item-label {
+        color: #ffffff;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* ==========================================================================
+   MOBILE SPECIFIC SCROLL LAYOUT & STRICT OBSERVER STATE (Max-width: 991.98px)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .adv-facilities-section {
+        height: auto;
+    }
+    .adv-facility-col {
+        position: relative;
+        height: 65vh;
+        min-height: 420px;
+        background-image: var(--mobile-bg);
+        background-size: cover;
+        background-position: center;
+        padding: 30px 20px;
+        overflow: hidden;
+    }
+    .adv-mobile-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%);
+        transition: background-color 0.4s ease;
+        z-index: 2;
+    }
+    .adv-col-border-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.15);
+        z-index: 3;
+    }
+    .adv-facility-col:first-of-type .adv-col-border-line {
+        display: none;
+    }
+
+    /* Mobile Title styles - Initial Hidden state */
+    .adv-mobile-scrolled-title {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 6.5vw, 3.5rem);
+        color: #ffffff;
+        letter-spacing: 4px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        margin: auto 0;
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* STRICT SINGLE-ACTIVE CLASS STATE */
+    .adv-facility-col.adv-mobile-active .adv-mobile-scrolled-title {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    .adv-facility-col.adv-mobile-active .adv-mobile-card-overlay {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+
+/* Regions */
+
+/* ==========================================================================
+   GLOBAL STRUCTURE & SECTION TYPOGRAPHY
+   ========================================================================== */
+.vibes-discover-section {
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.vib-badge-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #55b659;
+}
+
+.vib-display-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    color: #012b55;
+    letter-spacing: -0.5px;
+}
+
+.vib-sub-description {
+    color: #728294;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+/* ==========================================================================
+   THE MASKED COMPONENT BLOCK SPECIFICATION
+   ========================================================================== */
+.vibes-block-one {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: transparent;
+    height: 100%;
+    padding: 10px 0;
+}
+
+/* Header Text Options */
+.vibes-block-one .title-text {
+    
+        z-index: 3;
+    position: absolute;
+        top: 10px;
+    left: 5px;
+    transform: rotate(-10deg);
+}
+
+.vib-meta-line {
+    width: 32px;
+    height: 2.5px;
+    border-radius: 2px;
+}
+
+.vibes-block-one .title-text h3 {
+    margin: 0;
+    font-size: clamp(1.3rem, 1.5vw, 1.55rem);
+    font-weight: 800;
+}
+
+.vibes-block-one .title-text h3 a {
+    color: #012b55;
+    text-decoration: none;
+}
+
+/* Exact Container Box Boundaries */
+.vibes-block-one .image-box {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+}
+
+/* The Native Asset Image Mask Wrapper */
+.vibes-block-one .image-box .image {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    
+    /* Using your download.png as the structural shape mask */
+    mask-image: url('../images/download.png');
+    -webkit-mask-image: url('../images/download.png');
+    
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+    
+    mask-position: center;
+    -webkit-mask-position: center;
+    
+    mask-size: 100% 100%;
+    -webkit-mask-size: 100% 100%;
+}
+
+.vib-masked-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Zoom Hover Action */
+.vibes-block-one:hover .vib-masked-img {
+    transform: scale(1.06);
+}
+
+/* Action Hover Overlay Link Icon */
+.vibes-block-one .image-box .link {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(15px);
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vibes-block-one .image-box .link a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: #7bc143;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(123, 193, 67, 0.35);
+}
+
+.vibes-block-one:hover .image-box .link {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Footer Destination Counter Labels */
+.vibes-block-one .text {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #8191a3;
+    font-weight: 500;
+    position: absolute;
+    bottom: 10px;
+    right: 75px;
+    transform: rotate(-10deg);
+}
+
+/* ==========================================================================
+   SCROLL INTERSECTION ENTRIES (FADING & SLIDING ON SCROLL)
+   ========================================================================== */
+.vibe-fade-element {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+/* Clean staggered slide delays for the row grid */
+.row .vibe-fade-element:nth-child(1) { transition-delay: 0.0s; }
+.row .vibe-fade-element:nth-child(2) { transition-delay: 0.1s; }
+.row .vibe-fade-element:nth-child(3) { transition-delay: 0.2s; }
+.row .vibe-fade-element:nth-child(4) { transition-delay: 0.3s; }
+
+/* Trigger class used by scroll runtime */
+.vibe-fade-element.vibe-activated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Container Wrapper */
+.nepal-trek-gallery-wrapper {
+  display: flex;
+  width: 100%;
+  height: 700px;
+  gap: 12px;
+  margin: 0px auto;
+}
+
+/* Base Card Styles */
+.nt-gallery-card {
+  position: relative;
+  flex: 1; 
+  height: 100%;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Linear dark mask overlay for readability */
+.nt-gallery-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.75) 100%);
+  z-index: 1;
+}
+
+/* Flex Expansion Trigger */
+.nt-gallery-card:hover,
+.nt-gallery-card.active {
+  flex: 5; 
+}
+
+/* --- BADGES --- */
+/* Left White Badge (Visible when collapsed, hides when active/hovered) */
+.nt-badge-top-left {
+  position: absolute;
+  top: 15px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.nt-gallery-card:hover .nt-badge-top-left,
+.nt-gallery-card.active .nt-badge-top-left {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Center Green Badge (Hidden when collapsed, shows when active/hovered) */
+.nt-badge-top-center {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #72B043; 
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.8rem;
+  font-style: italic;
+  white-space: nowrap;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nt-gallery-card:hover .nt-badge-top-center,
+.nt-gallery-card.active .nt-badge-top-center {
+  opacity: 1;
+  transition-delay: 0.2s;
+}
+
+/* --- COLLAPSED VERTICAL TEXT --- */
+.nt-collapsed-title {
+  position: absolute;
+  bottom: 45px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  transform-origin: center;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.nt-gallery-card:hover .nt-collapsed-title,
+.nt-gallery-card.active .nt-collapsed-title {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* --- EXPANDED BOTTOM CONTENT --- */
+.nt-expanded-content {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 0 20px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.nt-gallery-card:hover .nt-expanded-content,
+.nt-gallery-card.active .nt-expanded-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.nt-main-title {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.nt-price-tag {
+  color: #72B043;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* --- RESPONSIVE MEDIA BREAKPOINTS --- */
+@media (max-width: 992px) {
+  .nepal-trek-gallery-wrapper {
+    height: 450px;
+  }
+  .nt-main-title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .nepal-trek-gallery-wrapper {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .nt-gallery-card {
+    height: 150px;
+    flex: none !important;
+    width: 100%;
+  }
+  .nt-gallery-card:hover,
+  .nt-gallery-card.active {
+    height: 220px;
+  }
+  .nt-collapsed-title {
+    transform: translateX(-50%) rotate(0deg);
+    bottom: 15px;
+  }
+  .nt-badge-top-left {
+    opacity: 1 !important;
+  }
+}
+
+.region-section{
+    padding: 0px 0 70px;
+    background: #FAF8F5;
+background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255) 68%);
+}
+
+
+.nt-section-title {
+   font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    font-size: 2.35rem;
+}
+
+.nt-section-title span {
+  color: #72B043; /* Highlights 'Exclusive' with matching theme green */
+   font-style: italic;
+}
+
+.nt-section-desc {
+  max-width: 600px;
+  font-size:16px;
+  line-height: 1.3;
+}
+.nt-section-header{
+    margin-bottom: 70px;
+}
+.ets-tours-section {
+            padding: 80px 0;
+        }
+
+        .ets-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .ets-section-subtitle {
+            font-family: 'DM Sans', sans-serif;
+            color: #666666;
+            font-size: 1.05rem;
+            max-width: 480px;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER NAVIGATION BUTTONS (Replacing the view button) --- */
+        .ets-header-nav-container {
+            display: inline-flex;
+            gap: 12px;
+        }
+
+        .ets-header-nav-btn {
+            position: static !important; /* Overriding default swiper placement */
+            width: 50px !important;
+            height: 50px !important;
+            background-color: #ffffff;
+            color: #1C1C1C !important;
+            border: 1px solid #EAEAEA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.02);
+            margin: 0 !important;
+        }
+
+        .ets-header-nav-btn::after {
+            font-size: 16px !important;
+            font-weight: bold;
+        }
+
+        .ets-header-nav-btn:hover {
+            background-color: #CE6D52;
+            color: #ffffff !important;
+            border-color: #CE6D52;
+        }
+
+        /* Disabled state styling for swiper buttons */
+        .swiper-button-disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            background-color: #f5f5f5;
+            color: #999999 !important;
+            border-color: #EAEAEA;
+        }
+
+        /* --- THE SLIDER WRAPPER --- */
+        .ets-slider-wrapper-full {
+            position: relative;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        /* --- FADED EDGE OVERLAY EFFECT --- */
+        .ets-slider-wrapper-full::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 15%; 
+            background: linear-gradient(to right, rgba(250, 248, 245, 0) 0%, rgba(250, 248, 245, 0.95) 100%);
+            z-index: 15;
+            pointer-events: none; 
+        }
+
+        /* --- TOUR CARDS LAYOUT --- */
+        .ets-tour-card {
+            background: #ffffff;
+            border: 1px solid #EAEAEA;
+            border-radius: 12px;
+            padding: 24px;
+            display: block;
+            height: auto;
+        }
+
+        .ets-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            color: #1C1C1C;
+            margin-bottom: 0px;
+        }
+
+        .ets-arrow-diagonal {
+            color: #CE6D52;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .ets-card-desc {
+            font-size: 0.88rem;
+            color: #666666;
+            line-height: 1.5;
+            margin-top: 12px;
+            margin-bottom: 20px;
+            min-height: 44px;
+        }
+
+        .ets-card-meta {
+            padding-bottom: 20px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #F0F0F0;
+            margin-bottom: 20px;
+        }
+
+        .ets-meta-item {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #1C1C1C;
+            font-weight: 500;
+        }
+
+        .ets-icon {
+            margin-right: 4px;
+            font-style: normal;
+        }
+
+        /* --- CARD IMAGES --- */
+        .ets-card-img-wrapper {
+            position: relative;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 1.25 / 1;
+        }
+
+        .ets-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1200px) {
+            .ets-slider-wrapper-full::after {
+                display: none; 
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ets-section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        .hos-offer-section {
+            position: relative;
+            padding: 100px 0;
+            /* True Parallax Effect Background Setup */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Content Styling from Image 2 */
+        .hos-tagline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .hos-tagline span {
+            color: #E25C47; /* Special 'Nature' text color */
+            font-weight: 700;
+        }
+
+        .hos-main-title {
+            font-size: 3.8rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .hos-description {
+            font-size: 1.05rem;
+            color: #E5E7EB;
+            line-height: 1.6;
+            max-width: 580px;
+            margin-bottom: 30px;
+        }
+
+        /* Price Segment Style from Image 2 */
+        .hos-price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .hos-price-old {
+            font-size: 1.5rem;
+            text-decoration: line-line-through;
+            text-decoration: line-through;
+            color: #9CA3AF;
+        }
+
+        .hos-price-new {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Countdown Tiles Layout from Image 1 */
+        .hos-countdown-container {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+
+        .hos-countdown-box {
+            background-color: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 12px;
+            width: 72px;
+            height: 76px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hos-countdown-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hos-countdown-label {
+            font-size: 0.72rem;
+            color: #9CA3AF;
+        }
+
+        /* Action elements footer alignment */
+        .hos-action-bar {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hos-btn-buy {
+            background-color: #E25C47;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 50px;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border: none;
+        }
+
+        .hos-btn-buy:hover {
+            transform: translateY(-2px);
+            background-color: #cb4b37;
+        }
+
+        .hos-meta-chip {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 12px 24px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        /* Right Hand Image Stacking Visual Structure from Image 1 */
+        .hos-video-frame-stack {
+            position: relative;
+        }
+
+        .hos-video-frame-stack::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            z-index: 1;
+        }
+
+        .hos-video-frame-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+        }
+
+        .hos-media-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+        }
+
+        .hos-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hos-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 46px;
+            background-color: #E50914; 
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            border: none;
+        }
+
+        .hos-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+            background-color: #ff121f;
+        }
+
+        .hos-play-icon {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-left: 16px solid white;
+            border-bottom: 10px solid transparent;
+            margin-left: 4px;
+        }
+
+        .hos-vertical-ribbon {
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.4);
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 991px) {
+            .hos-main-title { font-size: 3rem; }
+            .hos-offer-section {
+                background-attachment: scroll; /* Smooth scrolling performance on touchscreens */
+                padding: 70px 0;
+            }
+            .hos-vertical-ribbon { display: none; }
+        }
+
+        @media (max-width: 576px) {
+            .hos-main-title { font-size: 2.3rem; }
+            .hos-countdown-container { gap: 8px; }
+            .hos-countdown-box { width: 60px; height: 64px; }
+            .hos-countdown-num { font-size: 1.3rem; }
+            .hos-price-new { font-size: 2.2rem; }
+        }
+
+        .ets-btn-view-more {
+            display: inline-block;
+            background-color: #CE6D52;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .ets-btn-view-more:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* --- HERO SECTION STYLING --- */
+        .exact-hero-section {
+            padding: 70px 0 0 0;
+            background-color: #FAF8F5;
+            text-align: center;
+            position: relative;
+        }
+
+        .exact-hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 400;
+            color: #1A1A1A;
+            line-height: 1.15;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+        }
+
+        .exact-hero-title em {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        .exact-btn-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .exact-btn-book {
+            background-color: #CE6D52;
+            color: #ffffff !important;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(206, 109, 82, 0.15);
+        }
+
+        .exact-link-learn {
+            color: #1A1A1A;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Dotted Path Map Background Elements */
+        .exact-map-svg-left {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 320px;
+            pointer-events: none;
+        }
+        .exact-map-svg-right {
+            position: absolute;
+            top: -20px;
+            right: 0;
+            width: 350px;
+            pointer-events: none;
+        }
+
+        /* --- FLUID CONTAINER-WIDE FAN GALLERY WRAPPER --- */
+        .exact-gallery-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            width: 100%;
+            max-width: 100%; /* Spans the full fluid width of the layout */
+            margin: 0 auto;
+            padding: 0 4%;
+            position: relative;
+            z-index: 10;
+            /* Pushes down directly over the green background boundary line */
+            margin-bottom: -150px; 
+        }
+
+        .exact-img-card {
+            position: relative;
+            flex: 1; /* Allows each card to scale fluidly with the fluid row layout */
+            max-width: 350px; /* Upper layout cap per image card to prevent look fragmentation */
+            aspect-ratio: 0.8 / 1.05; /* Keeps precise design frame proportions */
+            border-radius: 10px;
+            height: 350px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+            background-color: #2B4236; 
+            /* Negative percentage margin dynamically creates the tight overlaps */
+            margin: 0 -1.5%; 
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
+        }
+
+        .exact-img-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fluid configuration offsets and rotation matrices matching your photo */
+        .exact-card-1 { transform: translateY(75px) rotate(-8deg); z-index: 1; }
+        .exact-card-2 { transform: translateY(25px) rotate(-4deg); z-index: 3; }
+        .exact-card-3 { transform: translateY(-25px) rotate(0deg); z-index: 5; max-width: 350px; border-radius: 8px;} /* Straight vertical center card */
+        .exact-card-4 { transform: translateY(25px) rotate(4deg); z-index: 4; }
+        .exact-card-5 { transform: translateY(75px) rotate(8deg); z-index: 2; }
+
+        .exact-img-card:hover {
+            z-index: 20;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        /* --- WHY CHOOSE US SECTION --- */
+        .exact-why-section {
+            background-color: #002039;
+            color: #ffffff;
+            padding: 240px 0 110px 0; /* Deep top padding to safely clear the larger dynamic card spillover */
+            position: relative;
+            z-index: 2;
+        }
+
+        .exact-section-header {
+            margin-bottom: 70px;
+        }
+
+        .exact-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            display: block;
+            margin-top: 40px;
+        }
+
+        .exact-main-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.4rem;
+            font-weight: 400;
+            line-height: 1.15;
+            text-align: right;
+            letter-spacing: -0.5px;
+        }
+
+        /* --- FEATURES GRID STYLING --- */
+        .exact-feature-card {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            padding: 40px 30px;
+            height: 100%;
+        }
+
+        .exact-icon-box {
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        .exact-icon-box svg {
+            width: 32px;
+            height: 32px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.25;
+        }
+
+        .exact-card-title {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.45rem;
+            font-weight: 400;
+            margin-bottom: 14px;
+            letter-spacing: -0.2px;
+        }
+
+        .exact-card-desc {
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* --- RESPONSIVE MEDIA BREAKPOINTS --- */
+        @media (max-width: 1199px) {
+            .exact-hero-title { font-size: 3.2rem; }
+            .exact-main-heading { font-size: 2.8rem; }
+            .exact-gallery-container { margin-bottom: -110px; }
+            .exact-why-section { padding-top: 190px; }
+        }
+
+        @media (max-width: 991px) {
+            .exact-main-heading { font-size: 2.3rem; }
+            .exact-gallery-container { margin-bottom: -80px; padding: 0 2%; }
+            .exact-img-card { margin: 0 -2%; }
+            .exact-card-1 { transform: translateY(45px) rotate(-7deg); }
+            .exact-card-2 { transform: translateY(15px) rotate(-3.5deg); }
+            .exact-card-3 { transform: translateY(-15px) rotate(0deg); }
+            .exact-card-4 { transform: translateY(15px) rotate(3.5deg); }
+            .exact-card-5 { transform: translateY(45px) rotate(7deg); }
+            .exact-why-section { padding-top: 150px; }
+        }
+
+        @media (max-width: 767px) {
+            .exact-hero-title { font-size: 2.2rem; }
+            .exact-main-heading { font-size: 1.9rem; text-align: left; }
+            .exact-tagline { margin-top: 10px; margin-bottom: 15px; }
+            .exact-map-svg-left, .exact-map-svg-right { display: none; }
+            
+            /* Fluid multi-row stack grid configuration for small screens */
+            .exact-gallery-container {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 16px;
+                margin-bottom: -30px;
+                padding: 0 15px;
+            }
+            .exact-img-card {
+                flex: none;
+                width: calc(50% - 16px);
+                max-width: 100%;
+                margin: 0 !important;
+                transform: none !important;
+            }
+            .exact-card-3 {
+                width: calc(50% - 16px);
+            }
+            .exact-why-section { padding-top: 90px; }
+        }
+
+        @media (max-width: 767px) {
+            .exact-hero-title { font-size: 2.1rem; margin-bottom: 40px; }
+            .exact-main-heading { font-size: 1.9rem; text-align: left; }
+            .exact-tagline { margin-top: 10px; margin-bottom: 15px; }
+            .exact-map-svg-left, .exact-map-svg-right { display: none; }
+            
+            /* Keeps layout inline as a continuous overlapping horizontal fan row */
+            .exact-gallery-container {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                justify-content: center !important;
+                align-items: flex-end !important;
+                padding: 0 !important;
+                width: 100vw;
+                margin-bottom: -110px; 
+            }
+
+            /* Sizes the images precisely so 3 are mostly visible while outer ones cascade out of boundary */
+            .exact-img-card {
+                flex: none !important;
+                width: 32vw !important;
+                height: 42vw !important;
+                margin: 0 -3.5% !important; /* Forces tighter card overlaps on narrow viewports */
+                border-radius: 8px;
+            }
+
+            /* Adjusts heights and offsets slightly so it hugs the screen layout naturally */
+            .exact-card-1 { transform: translateY(40px) rotate(-8deg) !important; }
+            .exact-card-2 { transform: translateY(10px) rotate(-4deg) !important; }
+            .exact-card-3 { transform: translateY(-15px) rotate(0deg) !important; width: 35vw !important; height: 46vw !important; z-index: 5; }
+            .exact-card-4 { transform: translateY(10px) rotate(4deg) !important; }
+            .exact-card-5 { transform: translateY(40px) rotate(8deg) !important; }
+
+            .exact-why-section { padding-top: 160px; }
+        }
