@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    font-family: "Questrial", sans-serif;
+    font-family: "Inter", sans-serif;
     background: #fff;
     overflow-x: hidden;
 }
@@ -22,18 +22,20 @@ h1, h2, h3, h4, h5, h6,
    1. GLOBAL HEADER & NAVBAR LAYOUT
    ========================================================================== */
 .explor-global-header {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     width: 100%;
     z-index: 1030;
-    background: transparent;
+    background: #002039;
 }
 
 .explor-global-header .navbar {
     background-color: transparent;
     padding: 0;
 }
-
+.navbar-toggler-icon {
+    filter: brightness(1) contrast(0);
+}
 .explor-global-header .navbar-container {
     position: relative; /* Anchors absolute dropdown panels */
     width: 100%;
@@ -321,7 +323,7 @@ h1, h2, h3, h4, h5, h6,
     height: 14px;
     object-fit: cover;
     border-radius: 0px; /* Sharp corners for an intentional, structured look */
-    filter: grayscale(100%); /* Keeps it monochromatic until hovered */
+    filter: grayscale(0%); /* Keeps it monochromatic until hovered */
     opacity: 0.7;
     transition: all 0.3s ease;
 }
@@ -544,7 +546,7 @@ h1, h2, h3, h4, h5, h6,
 .isl-hero-slider-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 90vh; /* Full viewport height */
     overflow: hidden;
   }
 
@@ -752,6 +754,18 @@ h1, h2, h3, h4, h5, h6,
     .isl-nav-container {
       bottom: 20px;
     }
+    .navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
+        color:#000;
+    }
+    .nav-link{
+        color:#000;
+    }
+    .nav-link:focus, .nav-link:hover{
+        color:#ff5a36;
+    }
+    .side-logo{
+        max-width: 100px;
+    }
   }
 /* ==========================================================================
    ABOUT US SECTION
@@ -914,9 +928,10 @@ h1, h2, h3, h4, h5, h6,
     margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .resort-glance-section .glance-item-box {
         margin-bottom: 0;
+        flex-direction: column;
     }
 }
 
@@ -926,7 +941,7 @@ h1, h2, h3, h4, h5, h6,
    Header & Core Navbar Layout
    ========================================== */
 .explor-global-header {
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     width: 100%;
     z-index: 1030;
@@ -1730,10 +1745,10 @@ h1, h2, h3, h4, h5, h6,
 /* Massive background-style elegant counter digits */
 .resort-glance-num {
     font-family: 'Playfair Display', sans-serif;
-    font-size:100px;
+    font-size:80px;
     font-weight: 300;
     line-height: 1;
-       color: rgb(248 119 2 / 40%);
+       color: rgb(248 119 2 / 100%);
     letter-spacing: -0.04em;
     transition: color 0.4s ease;
 }
@@ -1745,26 +1760,33 @@ h1, h2, h3, h4, h5, h6,
 
 .resort-glance-lbl {
     font-size: 16px;
+    width: 80px;
     font-weight: 600;
     letter-spacing: 0.08em;
     line-height: 1.3;
     color: #444444;
-    margin-left: -30px; /* Pulls the label slightly over the huge light digit */
+    margin-left: 0px; /* Pulls the label slightly over the huge light digit */
     z-index: 2;
 }
 
 /* Mobile responsive fixes */
 @media (max-width: 767.98px) {
-    .resort-glance-col {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
+    .resort-glance-col:nth-child(-n+2) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
     .resort-glance-col:nth-child(even) {
         border-left: 1px solid rgba(0, 0, 0, 0.05);
     }
     .resort-glance-lbl {
-        margin-left: -5px;
+        margin-left: 0px;
+        font-size: 13px;
+        width: auto;
+    }
+    .resort-glance-num {
+        font-size: 70px;
     }
 }
+
 
 /* Activities */
 
@@ -1830,7 +1852,7 @@ h1, h2, h3, h4, h5, h6,
         font-size: clamp(2.5rem, 8.5vw, 8rem);
         color: #ffffff;
         letter-spacing: 6px;
-        font-weight: 400;
+        font-weight: 700;
         text-transform: uppercase;
         margin: 0;
         text-align: center;
@@ -1950,10 +1972,10 @@ h1, h2, h3, h4, h5, h6,
     /* Mobile Title styles - Initial Hidden state */
     .adv-mobile-scrolled-title {
         font-family: "Inter", sans-serif;
-        font-size: clamp(2rem, 6.5vw, 3.5rem);
+        font-size: clamp(3rem, 6.5vw, 3.5rem);
         color: #ffffff;
         letter-spacing: 4px;
-        font-weight: 400;
+        font-weight: 600;
         text-transform: uppercase;
         text-align: center;
         margin: auto 0;
@@ -2370,19 +2392,22 @@ h1, h2, h3, h4, h5, h6,
 
 /* --- COLLAPSED VERTICAL TEXT --- */
 .nt-collapsed-title {
-  position: absolute;
-  bottom: 45px;
-  left: 50%;
-  transform: translateX(-50%) rotate(-90deg);
-  transform-origin: center;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  white-space: nowrap;
-  z-index: 2;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+    position: absolute;
+    bottom: 20px; 
+    left: 35%;
+    transform: translateX(-50%); 
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); 
+    max-height: 80%; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
 .nt-gallery-card:hover .nt-collapsed-title,
@@ -2627,6 +2652,19 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
             color: #1C1C1C;
             font-weight: 500;
         }
+        .ets-card-meta .ets-meta-item {
+    display: inline-block;
+    padding: 6px 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    background-color: #f0f0ef; /* Light grey background matching your image */
+    border: 1px solid #c8c8c7;    /* Subtle border outline */
+    border-radius: 20px;         /* Fully rounded pill shape */
+    text-align: center;
+    line-height: 1.2;
+}
 
         .ets-icon {
             margin-right: 4px;
@@ -2661,6 +2699,10 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
         }
 
         .hos-offer-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
             position: relative;
             padding: 100px 0;
             /* True Parallax Effect Background Setup */
@@ -3455,7 +3497,7 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     .trk-img-wrapper {
       position: relative;
       width: 100%;
-      height: 250px;
+      height: 350px;
       overflow: hidden;
       border-radius: 12px; /* Top corner rounding matching image block */
     }
@@ -3508,17 +3550,9 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
       justify-content: space-between;
     }
 
-    .trk-card-text {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #0c1c24;
-      line-height: 1.5;
-      margin-bottom: 12px;
-    }
-
     /* Action Links */
     .trk-read-more {
-      font-size: 0.85rem;
+      font-size: 1rem;
       font-weight: 600;
       color: #0c1c24;
       text-decoration: none;
@@ -3541,22 +3575,23 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     }
 
     /* Container providing physical scroll space for the width expand interpolation */
+/* Container providing physical scroll space for the width expand interpolation */
 .cta-scroll-trigger {
     position: relative;
     width: 100%;
 }
 
-/* The expanding pill element */
+/* The expanding pill element - FULL REPLACEMENT */
 .cta-capsule-card {
     position: relative;
     width: 70%;            /* Starts narrow and centered like a pill */
     max-width: 1200px;
     margin: 0 auto;
-    height: 550px;         /* FIXED height so it never stretches to 100vh */
+    height: 100vh;         /* Updated to Full Screen Height */
     overflow: hidden;
     
-    /* Perfect pill-shaped arcs on the edges initially */
-    border-radius: 275px; 
+    /* Dynamic pill-shaped arc based on the 100vh height */
+    border-radius: 50vh; 
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     
     /* GPU optimization for smooth dynamic scaling */
@@ -3567,6 +3602,7 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     position: relative;
     width: 100%;
     height: 100%;
+    text-align: center;
 }
 
 /* Background image processing */
@@ -3578,7 +3614,6 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     height: 100%;
     background-size: cover;
     background-position: center;
-    /* filter: brightness(0.65); */
     z-index: 1;
 }
 
@@ -3587,20 +3622,17 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     font-size: 0.8rem;
 }
 
-/* Responsive breakdowns to keep the radius proportional */
+/* Responsive breakdowns - FULL REPLACEMENT */
 @media (max-width: 992px) {
     .cta-capsule-card {
         width: 85%;
-        height: 450px;
-        border-radius: 225px;
     }
 }
 
 @media (max-width: 576px) {
     .cta-capsule-card {
         width: 92%;
-        height: 380px;
-        border-radius: 100px; /* Softer pill transition for smaller screens */
+        border-radius: 40vh; /* Smooth capsule curve for mobile portrait */
     }
     .cta-content-wrapper h2 {
         font-size: 2rem;
@@ -3822,4 +3854,33 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
   .et-ft-container { padding: 0 20px; }
   .et-ft-nav-links { gap: 10px; }
   .et-ft-nav-links li { width: 50%; text-align: center; }
+}
+
+
+
+/* Custom list links styling */
+.footer-expeditions-list li a {
+  opacity: 0.85;
+  transition: opacity 0.2s ease, padding-left 0.2s ease;
+  display: inline-block;
+}
+.footer-expeditions-list li a:hover {
+  opacity: 1;
+  color: #f87702 !important; /* Gold hover accent color optional */
+}
+
+/* Rounded Contact Badge Icons styling */
+.contact-icon-circle {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.footer-expeditions-list li{
+    line-height: 3;
 }

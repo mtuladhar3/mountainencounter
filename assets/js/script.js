@@ -121,8 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const desktopBg = document.getElementById("advDesktopBg");
     const desktopTitle = document.getElementById("advDesktopMasterTitle");
 
-    let defaultBg = desktopBg ? desktopBg.style.backgroundImage : "";
-    const defaultTitle = "ACTIVITIES";
     let mobileObserver = null;
 
     function resetLayoutEngine() {
@@ -136,20 +134,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             facilityCols.forEach(col => col.classList.remove("adv-mobile-active"));
 
-            // Strip any leftover listeners from columns
+            // Bind interactions directly to desktop target elements
             facilityCols.forEach(col => {
-                col.removeEventListener("mouseenter", handleDesktopEnter);
-                col.removeEventListener("mouseleave", handleDesktopLeave);
-                
-                // Target inner desktop elements exclusively
                 const targets = col.querySelectorAll(".adv-thumb-wrapper, .adv-item-label");
                 targets.forEach(target => {
-                    // Pass the parent column context so data attributes can be read cleanly
                     target.colContext = col; 
                     target.removeEventListener("mouseenter", handleElementEnter);
-                    target.removeEventListener("mouseleave", handleElementLeave);
                     target.addEventListener("mouseenter", handleElementEnter);
-                    target.addEventListener("mouseleave", handleElementLeave);
+                    // 'mouseleave' listeners are omitted entirely to keep the current state active/sticky
                 });
             });
         } else {
@@ -158,7 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const targets = col.querySelectorAll(".adv-thumb-wrapper, .adv-item-label");
                 targets.forEach(target => {
                     target.removeEventListener("mouseenter", handleElementEnter);
-                    target.removeEventListener("mouseleave", handleElementLeave);
                 });
             });
 
@@ -184,21 +175,26 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Strict Element Hover Processing
+    // Strict Element Hover Processing (Switches state and keeps it)
     function handleElementEnter() {
         const parentCol = this.colContext;
         if (!parentCol) return;
 
+        // 1. Remove the active/hovered state from all columns first
+        facilityCols.forEach(col => col.classList.remove("adv-element-hovered"));
+
+        // 2. Add the active state exclusively to the newly hovered column
+        parentCol.classList.add("adv-element-hovered");
+
         const targetBg = parentCol.getAttribute("data-bg");
         const targetTitle = parentCol.getAttribute("data-desktop-title");
 
-        // Highlight the thumbnail image card specifically when hovering it or its matching label
-        parentCol.classList.add("adv-element-hovered");
-
+        // 3. Update main background image
         if (desktopBg && targetBg) {
             desktopBg.style.backgroundImage = `url('${targetBg}')`;
         }
 
+        // 4. Update central master title text smoothly
         if (desktopTitle && targetTitle) {
             desktopTitle.classList.add("is-switching");
             setTimeout(() => {
@@ -208,39 +204,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function handleElementLeave() {
-        const parentCol = this.colContext;
-        if (parentCol) {
-            parentCol.classList.remove("adv-element-hovered");
-        }
-
-        if (desktopBg) {
-            desktopBg.style.backgroundImage = defaultBg;
-        }
-
-        if (desktopTitle) {
-            desktopTitle.classList.add("is-switching");
-            setTimeout(() => {
-                desktopTitle.textContent = defaultTitle;
-                desktopTitle.classList.remove("is-switching");
-            }, 180);
-        }
-    }
-
-    // Old unused legacy structural callbacks cleaned safely
-    function handleDesktopEnter() {}
-    function handleDesktopLeave() {}
-
-    // Initial setup running
+    // Initial engine execution
     resetLayoutEngine();
 
-    // Viewport watch monitoring system
+    // Viewport resize monitoring system
     window.addEventListener("resize", () => {
         clearTimeout(window.advResizeTimer);
         window.advResizeTimer = setTimeout(resetLayoutEngine, 150);
     });
 });
-
 document.addEventListener("DOMContentLoaded", () => {
     const fadeTargets = document.querySelectorAll(".vibe-fade-element");
 
@@ -355,7 +327,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     
@@ -364,18 +336,17 @@ document.addEventListener("DOMContentLoaded", () => {
         maxWidth: "100%",
         
         // Flatten ALL corners completely on full expansion
-        borderRadius: "0px",
+        borderRadius: "0vh",
         
         ease: "none",
         scrollTrigger: {
             trigger: ".cta-scroll-trigger",
-            start: "top 90%",       // Begins expanding shortly after entering viewport
-            end: "top 15%",         // Reaches full flat width before rolling up screen
+            start: "top 80%",       // Adjusted slightly so the 100vh impact is highly visible
+            end: "top 0%",          // Reaches full flat width exactly when top touches the view top
             scrub: 1.2              // Smooth fluid track interaction
         }
     });
 });
-
 document.addEventListener('DOMContentLoaded', function () {
     // Changing the variable name to 'islandHeroSlider' prevents any 'already declared' conflicts
     const islandHeroSlider = new Swiper('.isl-swiper-container', {
