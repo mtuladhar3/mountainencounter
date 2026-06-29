@@ -5,11 +5,18 @@ body, html {
     background: #fff;
     overflow-x: hidden;
 }
+
 h1, h2, h3, h4, h5, h6, 
 .trek-brand-header, 
 .trek-card-title, 
 .offcanvas-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', serif;
+}
+h1, h2, h3, h4, h5, h6, 
+.trek-brand-header, 
+.trek-card-title, 
+.offcanvas-title {
+    font-family: "Inter", sans-serif;
 }
 /* ==========================================================================
    1. GLOBAL HEADER & NAVBAR LAYOUT
@@ -398,9 +405,10 @@ h1, h2, h3, h4, h5, h6,
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgb(248 119 2 / 40%);
     color: #ffffff;
-    font-size: 0.75rem;
+    background: #f87702;
+    font-size: 1rem;
     padding: 0.65rem 1.6rem;
     border-radius: 50px;
     letter-spacing: 0.12em;
@@ -532,272 +540,219 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Banner Slider Base Setup */
-.explor-hero-slider {
+/* --- CUSTOM HERO SLIDER STYLES --- */
+.isl-hero-slider-wrapper {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background-color: #000000;
-}
-
-.swiper-slide {
+    height: 100vh; /* Full viewport height */
     overflow: hidden;
-}
+  }
 
-/* Shrunk Background Frame Layer */
-.explor-bg-box {
-    position: absolute;
-    top: 0;
-    left: 0;
+  .isl-swiper-container {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    transform-origin: center center;
-    transition: width 700ms cubic-bezier(0.4, 0, 0.2, 1),
-                height 700ms cubic-bezier(0.4, 0, 0.2, 1),
-                top 700ms cubic-bezier(0.4, 0, 0.2, 1),
-                left 700ms cubic-bezier(0.4, 0, 0.2, 1),
-                border-radius 700ms ease;
-}
+  }
 
-.explor-bg-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+  .isl-slide-item {
+    position: relative;
     background-size: cover;
     background-position: center;
-    transform: scale(1);
-    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.explor-bg-img::after {
+  /* Dark Overlay to replicate the image dimming and text readability */
+  .isl-slide-item::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-}
+    background: rgba(0, 0, 0, 0.45); 
+    z-index: 1;
+  }
 
-/* --- State: Active Shrink Transform Timeline --- */
-.explor-hero-slider.is-shrinking .swiper-slide-active .explor-bg-box,
-.explor-hero-slider.is-shrinking .swiper-slide-next .explor-bg-box,
-.explor-hero-slider.is-shrinking .swiper-slide-prev .explor-bg-box {
-    width: 65%;
-    height: 65%;
-    top: 17.5%;
-    left: 17.5%;
-    border-radius: 16px;
-}
-
-.explor-hero-slider.is-shrinking .swiper-slide-active .explor-bg-img,
-.explor-hero-slider.is-shrinking .swiper-slide-next .explor-bg-img,
-.explor-hero-slider.is-shrinking .swiper-slide-prev .explor-bg-img {
-    transform: scale(1.25);
-}
-
-/* Typography Content Engine */
-.explor-main-title {
-    font-family: 'Playfair Display', serif;
-    font-size: calc(2.4rem + 4.5vw);
-    line-height: 1.1;
-    letter-spacing: 0.14em;
-    transform: translateY(40px);
-    opacity: 0;
-    transition: opacity 600ms ease, transform 600ms ease;
-}
-
-.explor-sub-title {
-    font-size: calc(1.1rem + 0.8vw);
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    transform: translateY(30px);
-    opacity: 0;
-    transition: opacity 600ms ease 100ms, transform 600ms ease 100ms;
-}
-
-.explor-desc, .explor-price-tag {
-    transform: translateY(20px);
-    opacity: 0;
-    transition: opacity 500ms ease 200ms, transform 500ms ease 200ms;
-}
-
-.swiper-slide-active .explor-main-title,
-.swiper-slide-active .explor-sub-title,
-.swiper-slide-active .explor-desc,
-.swiper-slide-active .explor-price-tag {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.explor-hero-slider.is-shrinking .swiper-slide .explor-main-title,
-.explor-hero-slider.is-shrinking .swiper-slide .explor-sub-title,
-.explor-hero-slider.is-shrinking .swiper-slide .explor-desc,
-.explor-hero-slider.is-shrinking .swiper-slide .explor-price-tag {
-    opacity: 0;
-    transform: translateY(-30px);
-    transition: opacity 300ms ease, transform 300ms ease;
-}
-
-/* Event handling layout helpers for containers overlaying absolute wrappers */
-.pointer-events-none { pointer-events: none; }
-.pointer-events-auto { pointer-events: auto; }
-
-/* Action Circle Button Shape */
-.explor-btn-circle {
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
+  .isl-slide-content {
+    position: relative;
+    z-index: 2;
     color: #ffffff;
+    text-align: center;
+    max-width: 850px;
+    padding: 0 20px;
+  }
+
+  /* Typography styling based on the image */
+  .isl-sub-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.8s ease;
+  }
+
+  .isl-main-title {
+    font-family: "Inter", sans-serif;
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 35px;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s ease 0.2s;
+  }
+
+  /* Buttons Group styling */
+  .isl-btn-group {
     display: flex;
+    gap: 15px;
     justify-content: center;
     align-items: center;
-    transition: border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-}
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 0.4s;
+  }
 
-.explor-btn-text {
-    font-size: 0.75rem;
-    letter-spacing: 0.15em;
-    font-weight: 500;
-}
+  .isl-btn {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 15px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
 
-.explor-btn-circle:hover {
+  .isl-btn-primary {
+    background-color: #ffffff;
+    color: #212529;
+    border: 2px solid #ffffff;
+  }
+
+  .isl-btn-primary:hover {
+    background-color: transparent;
+    color: #ffffff;
+  }
+
+  .isl-btn-secondary {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+  }
+
+  .isl-btn-secondary:hover {
+    background-color: #ffffff;
+    color: #212529;
     border-color: #ffffff;
-    background-color: rgba(255, 255, 255, 0.08);
-    transform: scale(1.05);
-}
+  }
 
-@media (max-width: 768px) {
-    .explor-btn-circle {
-        width: 110px;
-        height: 110px;
-    }
-    .nav-link:focus, .nav-link:hover {
-    color:#000;
-}
-    .navbar-nav .nav-link.active, .navbar-nav .nav-link.show{
-        color:#000;
-    }
-    .navbar-toggler-icon{
-        filter: brightness(1) contrast(0);
-    }
-    .nav-link{
-        color:#000;
-    }
-    .explor-btn-book {
-    border: 1px solid rgb(0 0 0 / 40%);
-    color: #000000;
-    }
-    .explor-hero-slider.is-shrinking .swiper-slide-active .explor-bg-box {
-        width: 85%;
-        height: 55%;
-        top: 22.5%;
-        left: 7.5%;
-    }
-}
+  /* --- SWIPER ACTIVE ANIMATION TRIGGER --- */
+  .swiper-slide-active .isl-sub-title {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-/* ==========================================================================
-   Shared Component Base Containers
-   ========================================================================== */
-.hero-container, .abt-container, .glance-container {
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
+  .swiper-slide-active .isl-main-title {
+    opacity: 1;
+    transform: scale(1);
+  }
 
-@media (min-width: 576px)  { .hero-container, .abt-container, .glance-container { max-width: 540px; } }
-@media (min-width: 768px)  { .hero-container, .abt-container, .glance-container { max-width: 720px; } }
-@media (min-width: 992px)  { .hero-container, .abt-container, .glance-container { max-width: 960px; } }
-@media (min-width: 1200px) { .hero-container, .abt-container, .glance-container { max-width: 1140px; } }
-@media (min-width: 1400px) { .hero-container, .abt-container, .glance-container { max-width: 1320px; } }
+  .swiper-slide-active .isl-btn-group {
+    opacity: 1;
+    transform: translateY(0);
+  }
 
-/* ==========================================================================
-   2. HERO BANNER SLIDER SECTION
-   ========================================================================== */
-.explor-hero-slider {
-    position: relative;
-    overflow: hidden;
-}
-
-.explor-hero-slider .swiper-slide {
-    position: relative;
-    height: 100vh; /* Replaces h-100 on absolute screen tracks */
-    min-height: 600px;
-}
-
-.explor-hero-slider .explor-bg-box,
-.explor-hero-slider .explor-bg-img {
+  /* --- CUSTOM CIRCULAR NAVIGATION CONTROLS --- */
+  .isl-nav-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
-}
-
-.explor-hero-slider .hero-container {
-    position: relative;
-    height: 100%;
-    z-index: 2;
-}
-
-.explor-hero-slider .hero-row {
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: 120px;
+    height: 120px;
     display: flex;
     align-items: center;
-    height: 100%;
-}
+    justify-content: center;
+  }
 
-.explor-hero-slider .hero-content {
+  /* The visual dashed/thin circular frame seen at the bottom */
+  .isl-nav-circle-svg {
+    position: absolute;
     width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    pointer-events: none;
+  }
+
+  .isl-nav-circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 1;
+  }
+
+  .isl-nav-buttons-wrapper {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    z-index: 11;
+  }
+
+  .isl-nav-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    padding: 5px;
+  }
+
+  .isl-nav-btn:hover {
     color: #ffffff;
-}
+  }
 
-/* Responsive Column System Replaced manually via Content box max widths */
-@media (min-width: 576px)  { .explor-hero-slider .hero-content { max-width: 100%; } }
-@media (min-width: 768px)  { .explor-hero-slider .hero-content { max-width: 83.333333%; } }
-@media (min-width: 992px)  { .explor-hero-slider .hero-content { max-width: 66.666667%; } }
+  /* --- RESPONSIVE BREAKPOINTS --- */
+  @media (max-width: 991.98px) {
+    .isl-main-title {
+      font-size: 48px;
+    }
+  }
 
-.explor-hero-slider .explor-main-title {
-    text-transform: uppercase;
-    font-size: calc(1.625rem + 4.5vw);
-    font-weight: 800;
-    line-height: 1.1;
-}
-
-.explor-hero-slider .explor-sub-title {
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-    opacity: 0.9;
-}
-
-.explor-hero-slider .explor-desc {
-    color: rgba(255, 255, 255, 0.884);
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.explor-hero-slider .explor-price-tag .price-lbl {
-    display: block;
-    color: rgba(255, 255, 255, 0.76);
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.explor-hero-slider .explor-price-tag .price-val {
-    font-size: 1.5rem;
-    font-weight: 500;
-}
-
+  @media (max-width: 767.98px) {
+    .isl-main-title {
+      font-size: 34px;
+      margin-bottom: 25px;
+    }
+    .isl-sub-title {
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+    .isl-btn {
+      padding: 12px 25px;
+      font-size: 11px;
+    }
+    .isl-btn-group {
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto;
+    }
+    .isl-nav-container {
+      bottom: 20px;
+    }
+  }
 /* ==========================================================================
    ABOUT US SECTION
    ========================================================================== */
@@ -934,7 +889,7 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     flex-wrap: wrap;
     border-top: 1px solid #e9ecef;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid #dedede;
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
@@ -1555,7 +1510,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Typography Elements */
 .exp-abt-title {
-    font-family: 'Playfair Display', serif;
+    font-family: "Inter", sans-serif;
     color: #1a1a1a;
     font-size: 2.35rem;
     font-weight: 400;
@@ -1719,8 +1674,8 @@ h1, h2, h3, h4, h5, h6,
    Glance Counter Section Light Theme Styles
    ========================================================================== */
 .resort-glance-section {
-    background-color: #faf8f5; /* Clean, minimal light backdrop matching your About layout */
-    font-family: 'Inter', sans-serif;
+    background: linear-gradient(360deg, rgb(0 32 57 / 10%) 20%, rgb(250 248 245) 68%); /* Clean, minimal light backdrop matching your About layout */
+    font-family: 'Playfair Display', sans-serif;
     color: #1a1a1a;
     padding: 0px 0 70px;
 }
@@ -1778,7 +1733,7 @@ h1, h2, h3, h4, h5, h6,
     font-size:100px;
     font-weight: 300;
     line-height: 1;
-    color: rgba(211, 115, 94, 0.274); /* Light terracotta tinted transparency */
+       color: rgb(248 119 2 / 40%);
     letter-spacing: -0.04em;
     transition: color 0.4s ease;
 }
@@ -1860,7 +1815,7 @@ h1, h2, h3, h4, h5, h6,
     }
     .adv-desktop-master-title-wrapper {
         position: absolute;
-        top: 0;
+        top: -120px;
         left: 0;
         width: 100%;
         height: 100%;
@@ -1871,7 +1826,7 @@ h1, h2, h3, h4, h5, h6,
         z-index: 10;
     }
     .adv-desktop-master-title {
-        font-family: 'Playfair Display', serif;
+        font-family: "Inter", sans-serif;
         font-size: clamp(2.5rem, 8.5vw, 8rem);
         color: #ffffff;
         letter-spacing: 6px;
@@ -1935,7 +1890,7 @@ h1, h2, h3, h4, h5, h6,
 .adv-item-label {
     position: absolute;
     bottom: 0;
-    font-family: 'Playfair Display', serif;
+    font-family: "Inter", sans-serif;
     font-size: clamp(0.85rem, 2vw, 2.05rem);
     color: rgba(255, 255, 255, 0.75);
     letter-spacing: 2px;
@@ -1961,7 +1916,7 @@ h1, h2, h3, h4, h5, h6,
     }
     .adv-facility-col {
         position: relative;
-        height: 65vh;
+        height: 30vh;
         min-height: 420px;
         background-image: var(--mobile-bg);
         background-size: cover;
@@ -1994,7 +1949,7 @@ h1, h2, h3, h4, h5, h6,
 
     /* Mobile Title styles - Initial Hidden state */
     .adv-mobile-scrolled-title {
-        font-family: 'Playfair Display', serif;
+        font-family: "Inter", sans-serif;
         font-size: clamp(2rem, 6.5vw, 3.5rem);
         color: #ffffff;
         letter-spacing: 4px;
@@ -2017,6 +1972,132 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
+/* ==========================================================================
+   DESKTOP THUMBNAIL STYLES (Added Layout Components)
+   ========================================================================== */
+@media (min-width: 992px) {
+    /* Push label a bit down to make space for the image card */
+    .adv-item-label {
+        bottom: 40px; 
+    }
+
+    /* Thumbnail Card Container */
+    .adv-thumb-wrapper {
+        width: 75%;
+        max-width: 220px;
+        aspect-ratio: 3 / 4;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transform: translateY(0) scale(1);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+        margin-bottom: 40px; /* Positions it nicely above the text label */
+    }
+
+    .adv-thumb-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    /* Hover effects triggered from column wrapper */
+    .adv-facility-col:hover .adv-thumb-wrapper {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .adv-facility-col:hover .adv-thumb-img {
+        transform: scale(1.08);
+    }
+}/* ==========================================================================
+   DESKTOP THUMBNAIL STYLES (Refined for exact positioning & size)
+   ========================================================================== */
+@media (min-width: 992px) {
+    /* Main column flex alignment to keep elements pinned safely at the bottom */
+    .adv-facility-col {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Keeps items anchored to the bottom */
+        align-items: center;
+        padding: 60px 25px; /* Comfortable bottom padding */
+    }
+
+    /* Content box acts as the structural anchor for thumb + label */
+    .adv-content-box {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: auto; /* Shrinks container down to fit content naturally */
+        width: 100%;
+    }
+
+    /* Smaller, compact thumbnail container placed right above the title */
+    .adv-thumb-wrapper {
+        width: 120px; /* Reduced width for a cleaner look */
+        height: 120px; /* Explicit height to match a fine portrait ratio */
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transform: translateY(0) scale(1);
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.5s ease;
+        margin-bottom: 25px; /* Perfect tight gap directly above the text title */
+        cursor: pointer;
+    }
+
+    .adv-thumb-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    /* Clean text label styling under the card */
+    .adv-item-label {
+        position: relative; /* Changed from absolute to flow naturally below the thumb */
+        bottom: auto;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(0.9rem, 1.5vw, 1.3rem); /* Fine-tuned scaling */
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 2px;
+        font-weight: 400;
+        text-transform: uppercase;
+        margin: 0;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    /* ==========================================================================
+       STRICT INTERACTIVE HOVER STATES
+       ========================================================================== */
+    .adv-facilities-section :has(.adv-element-hovered) .adv-desktop-bg-layer {
+        transform: scale(1.02);
+    }
+
+    /* Actions apply only when hovering the precise element hooks */
+    .adv-facility-col.adv-element-hovered .adv-thumb-wrapper {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.6);
+        border-color: rgba(255, 255, 255, 0.35);
+    }
+
+    .adv-facility-col.adv-element-hovered .adv-thumb-img {
+        transform: scale(1.08);
+    }
+
+    .adv-facility-col.adv-element-hovered .adv-item-label {
+        color: #ffffff;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+    }
+}
+
 
 /* Regions */
 
@@ -2027,7 +2108,6 @@ h1, h2, h3, h4, h5, h6,
     background-color: #ffffff;
     width: 100%;
     overflow: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 .vib-badge-text {
@@ -2269,7 +2349,7 @@ h1, h2, h3, h4, h5, h6,
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: #72B043; 
+  background-color: #f87702; 
   color: #fff;
   padding: 4px 14px;
   border-radius: 20px;
@@ -2340,7 +2420,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .nt-price-tag {
-  color: #72B043;
+  color: #f87702;
   font-weight: 600;
   font-size: 1rem;
   margin: 0;
@@ -2381,21 +2461,23 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .region-section{
-    padding: 0px 0 70px;
+    padding: 30px 0 70px;
     background: #FAF8F5;
-background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255) 68%);
+background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 68%);
 }
 
 
 .nt-section-title {
-   font-weight: 700;
-    line-height: 1.2;
-    color: #1a1a1a;
-    font-size: 2.35rem;
+       font-size: 3.8rem;
+    font-weight: 400;
+    color: #1A1A1A;
+    line-height: 1.15;
+    margin-bottom: 50px;
+    letter-spacing: -0.5px;
 }
 
 .nt-section-title span {
-  color: #72B043; /* Highlights 'Exclusive' with matching theme green */
+  color: #f87702; /* Highlights 'Exclusive' with matching theme green */
    font-style: italic;
 }
 
@@ -2412,14 +2494,13 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .ets-section-title {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-size: 2.75rem;
             font-weight: 500;
             margin-bottom: 15px;
         }
 
         .ets-section-subtitle {
-            font-family: 'DM Sans', sans-serif;
             color: #666666;
             font-size: 1.05rem;
             max-width: 480px;
@@ -2455,9 +2536,9 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .ets-header-nav-btn:hover {
-            background-color: #CE6D52;
+            background-color: #f87702;
             color: #ffffff !important;
-            border-color: #CE6D52;
+            border-color: #f87702;
         }
 
         /* Disabled state styling for swiper buttons */
@@ -2488,6 +2569,17 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
             z-index: 15;
             pointer-events: none; 
         }
+        .ets-slider-wrapper-full::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 15%; 
+            background: linear-gradient(to left, rgba(250, 248, 245, 0) 0%, rgba(250, 248, 245, 0.795) 100%);
+            z-index: 15;
+            pointer-events: none; 
+        }
 
         /* --- TOUR CARDS LAYOUT --- */
         .ets-tour-card {
@@ -2500,14 +2592,14 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .ets-card-title {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-size: 1.45rem;
             color: #1C1C1C;
             margin-bottom: 0px;
         }
 
         .ets-arrow-diagonal {
-            color: #CE6D52;
+            color: #f87702;
             font-size: 1.25rem;
             font-weight: bold;
             text-decoration: none;
@@ -2530,7 +2622,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .ets-meta-item {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-style: italic;
             color: #1C1C1C;
             font-weight: 500;
@@ -2572,13 +2664,12 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
             position: relative;
             padding: 100px 0;
             /* True Parallax Effect Background Setup */
-            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)), url('../images/highlight-bg.jpg');
             background-attachment: fixed;
             background-position: center center;
             background-repeat: no-repeat;
             background-size: cover;
             color: #ffffff;
-            font-family: 'DM Sans', sans-serif;
             overflow: hidden;
         }
 
@@ -2591,7 +2682,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .hos-tagline span {
-            color: #E25C47; /* Special 'Nature' text color */
+            color: #f87702; /* Special 'Nature' text color */
             font-weight: 700;
         }
 
@@ -2672,7 +2763,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .hos-btn-buy {
-            background-color: #E25C47;
+            background-color: #f87702;
             color: #ffffff !important;
             text-decoration: none;
             font-size: 0.9rem;
@@ -2802,7 +2893,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
 
         .ets-btn-view-more {
             display: inline-block;
-            background-color: #CE6D52;
+            background-color: #f87702;
             color: #ffffff !important;
             text-decoration: none;
             font-size: 0.75rem;
@@ -2827,7 +2918,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-hero-title {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-size: 3.8rem;
             font-weight: 400;
             color: #1A1A1A;
@@ -2837,7 +2928,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-hero-title em {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-style: italic;
         }
 
@@ -2849,7 +2940,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-btn-book {
-            background-color: #CE6D52;
+            background-color: #f87702;
             color: #ffffff !important;
             text-decoration: none;
             font-size: 0.75rem;
@@ -2948,7 +3039,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-tagline {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-style: italic;
             font-size: 0.95rem;
             color: rgba(255, 255, 255, 0.6);
@@ -2957,7 +3048,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-main-heading {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-size: 3.4rem;
             font-weight: 400;
             line-height: 1.15;
@@ -2988,7 +3079,7 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
         }
 
         .exact-card-title {
-            font-family: 'Playfair Display', serif;
+            font-family: "Inter", sans-serif;
             font-style: italic;
             font-size: 1.45rem;
             font-weight: 400;
@@ -3087,3 +3178,648 @@ background: linear-gradient(180deg,rgba(250, 248, 245, 1) 20%, rgb(255, 255, 255
 
             .exact-why-section { padding-top: 160px; }
         }
+
+        .tm-section-wrapper {
+      background-color: #FAF8F5; /* Exact off-white background color */
+      padding: 70px 0 0;
+      font-family: "Inter", sans-serif;
+      overflow: hidden;
+    }
+
+    .tm-section-title {
+      font-weight: 400;
+      font-size: 2.5rem;
+      color: #1a1a1a;
+      margin-bottom: 50px;
+    }
+
+    .tm-section-title em {
+      font-style: italic;
+      font-family: "Inter", sans-serif;
+    }
+
+    /* Slider Container Constraints */
+    .tm-slider-container {
+      position: relative;
+      padding: 40px 0;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Base Card Styling */
+    .tm-testimonial-card {
+      background: #ffffff;
+      border: 1px solid #EFEBE4;
+      border-radius: 8px;
+      padding: 35px 30px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s ease-in-out;
+      opacity: 0.6; /* Side cards are slightly faded */
+      transform: scale(0.9); /* Side cards are smaller */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    }
+
+    /* ACTIVE / CENTER CARD EFFECT */
+    /* Swiper automatically adds .swiper-slide-active to the center card when centeredSlides: true */
+    .swiper-slide-active .tm-testimonial-card {
+      opacity: 1;
+      transform: scale(1.06); /* Center card is prominently bigger */
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      border-color: #E2DCD2;
+    }
+
+    /* Card Content Elements */
+    .tm-stars {
+      color: #FFB800;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .tm-comment {
+      font-family: 'Playfair Display', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4A4A4A;
+      margin-bottom: 30px;
+    }
+
+    .tm-user-profile {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .tm-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .tm-user-name {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #222222;
+      margin-bottom: 2px;
+    }
+
+    .tm-user-designation {
+      font-size: 0.75rem;
+      color: #8C8C8C;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* CUSTOM NAVIGATION BUTTONS */
+    .tm-nav-btn {
+      width: 45px;
+      height: 45px;
+      background-color: #ffffff;
+      border: 1px solid #DCD6CD;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .tm-nav-btn:hover {
+      background-color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    .tm-nav-btn:hover svg {
+      stroke: #ffffff;
+    }
+
+    /* Position buttons relative to the layout grid */
+    .tm-prev {
+      left: calc(33.333% - 22.5px); /* Perfectly aligns between card 1 and 2 */
+    }
+
+    .tm-next {
+      right: calc(33.333% - 22.5px); /* Perfectly aligns between card 2 and 3 */
+    }
+
+    /* Hide default swiper navigation icons */
+    .tm-nav-btn::after {
+      display: none;
+    }
+
+    /* Mobile Responsive tweaks */
+    @media (max-width: 991px) {
+      .tm-prev { left: 15px; }
+      .tm-next { right: 15px; }
+      .swiper-slide-active .tm-testimonial-card {
+        transform: scale(1); /* Reset scale on mobile for standard grid space */
+      }
+      .tm-testimonial-card {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .adv-hero-section {
+      position: relative;
+      width: 100%;
+      min-height: 450px;
+      background-image: url('../images/Travel.webp');
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      padding: 80px 0;
+      overflow: hidden;
+    }
+
+    /* Top vignette/fade effect to match the image gradient transition */
+    .adv-hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(to bottom, #faf8f5 0%, rgb(250 248 245 / 80%) 40%, rgba(255, 255, 255, 0) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Inner layout container ensuring content sits above background effects */
+    .adv-content-container {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+
+    /* Left Side Script Text Styling */
+    .adv-script-heading {
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      color: #ffffff;
+      line-height: 1.2;
+      text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4), 
+                   -1px -1px 0 rgba(0,0,0,0.2), 
+                   1px -1px 0 rgba(0,0,0,0.2);
+      padding-left: 10%;
+      margin-top: 60px;
+    }
+
+    /* Right Side Dark Green Container Block */
+    .adv-callout-block {
+      background-color: #334D3D; /* Exact dark forest green */
+      border-radius: 12px;
+      padding: 55px 45px;
+      max-width: 480px;
+      margin-left: auto; /* Aligns container to the right */
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Typography inside the Block */
+    .adv-callout-title {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      color: #ffffff;
+      line-height: 1.3;
+      margin-bottom: 0;
+    }
+
+    .adv-callout-title em {
+      font-style: italic;
+      font-family: "Inter", sans-serif;
+    }
+
+    /* Responsive Mobile Overrides */
+    @media (max-width: 991px) {
+      .adv-hero-section {
+        padding: 60px 0;
+        background-position: 65% bottom; /* Keeps mountain focal point optimized on tablet */
+      }
+      .adv-script-heading {
+        padding-left: 0;
+        text-align: center;
+        margin-bottom: 40px;
+        margin-top: 20px;
+      }
+      .adv-callout-block {
+        margin: 0 auto; /* Centers the green block on smaller screens */
+        padding: 40px 30px;
+      }
+    }
+
+    .trk-blog-section {
+      background-color: #ffffff;
+      padding: 70px 0;
+    }
+
+    .trk-main-title {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      color: #0c1c24;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .trk-sub-title {
+      font-size: 0.95rem;
+      color: #5a666e;
+      line-height: 1.6;
+      max-width: 440px;
+      margin-top: 25px;
+      margin-bottom: 50px;
+    }
+
+    /* --- CARD STYLE ARCHITECTURE --- */
+    .trk-adventure-card {
+      background: #faf8f5;
+      border: none;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Wrapper to safely contain image zoom effects */
+    .trk-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      border-radius: 12px; /* Top corner rounding matching image block */
+    }
+
+    .trk-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Elegant image expansion effect when hovering anywhere on the card */
+    .trk-adventure-card:hover .trk-card-img {
+      transform: scale(1.04);
+    }
+
+    /* Meta Details Container Split Layout */
+    .trk-card-body {
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    /* Date Split Column Details */
+    .trk-date-box {
+      min-width: 75px;
+      flex-shrink: 0;
+    }
+
+    .trk-day {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #0c1c24;
+      line-height: 1;
+    }
+
+    .trk-month {
+      font-size: 0.85rem;
+      color: #7a868e;
+      margin-top: 5px;
+      display: block;
+    }
+
+    /* Main Content Right Side Column */
+    .trk-content-box {
+      border-left: 1px solid #e5ecef;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .trk-card-text {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #0c1c24;
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    /* Action Links */
+    .trk-read-more {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #0c1c24;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .trk-read-more:hover {
+      color: #1b4d3e; /* Deep green accent color for trekking focus */
+    }
+
+    .trk-read-more svg {
+      transition: transform 0.2s ease;
+    }
+
+    .trk-adventure-card:hover .trk-read-more svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* Container providing physical scroll space for the width expand interpolation */
+.cta-scroll-trigger {
+    position: relative;
+    width: 100%;
+}
+
+/* The expanding pill element */
+.cta-capsule-card {
+    position: relative;
+    width: 70%;            /* Starts narrow and centered like a pill */
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 550px;         /* FIXED height so it never stretches to 100vh */
+    overflow: hidden;
+    
+    /* Perfect pill-shaped arcs on the edges initially */
+    border-radius: 275px; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    /* GPU optimization for smooth dynamic scaling */
+    will-change: width, border-radius, max-width;
+}
+
+.cta-content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Background image processing */
+.cta-media-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    /* filter: brightness(0.65); */
+    z-index: 1;
+}
+
+.tracking-wider {
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+/* Responsive breakdowns to keep the radius proportional */
+@media (max-width: 992px) {
+    .cta-capsule-card {
+        width: 85%;
+        height: 450px;
+        border-radius: 225px;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-capsule-card {
+        width: 92%;
+        height: 380px;
+        border-radius: 100px; /* Softer pill transition for smaller screens */
+    }
+    .cta-content-wrapper h2 {
+        font-size: 2rem;
+    }
+}
+
+/* --- EXPRESS TRAVEL FOOTER CUSTOM STYLES --- */
+
+/* Theme Colors & Font Configurations */
+.et-ft-wrapper {
+  background-color: #002039; /* Dark Forest Green Background */
+  color: #ffffff;
+  padding: 60px 0 20px 0;
+  overflow: hidden;
+}
+
+.et-ft-container {
+  max-width: 1400px;
+  padding: 0 40px;
+}
+
+/* Horizontal Dividers */
+.et-ft-divider {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin: 0;
+  opacity: 1;
+}
+
+/* 1. Top Navigation Row Styles */
+.et-ft-logo {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.et-ft-logo img{
+    width:140px;
+}
+.et-ft-logo-main {
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: bold;
+}
+.et-ft-logo-sub {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: right;
+}
+
+.et-ft-nav-links {gap: 25px;}
+.et-ft-nav-links li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+  padding: 5px 15px;
+}
+.et-ft-nav-links li a:hover {
+  color: #f87702; /* Subtle coral accent on hover */
+}
+
+/* 2. Main Middle Row Typography & Layout */
+.et-ft-main-heading {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(2.2rem, 5vw, 4.2rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.et-ft-inline-img-box {
+  width: 110px;
+  height: 55px;
+  border-radius: 50px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.et-ft-inline-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.et-ft-description {
+  max-width: 520px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* 3. Circular Spinning Contact Button */
+.et-ft-contact-circle-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 130px;
+  height: 130px;
+  text-decoration: none;
+}
+
+.et-ft-contact-circle-btn svg {
+  animation: etCircleRotate 12s linear infinite;
+  border-radius: 50%;
+}
+
+.et-ft-circle-text {
+  font-size: 10.5px;
+  fill: #ffffff;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.et-ft-circle-arrow {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.et-ft-contact-circle-btn:hover .et-ft-circle-arrow {
+  transform: scale(1.15) translate(2px, -2px);
+}
+
+@keyframes etCircleRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 4. Instagram Feed & Social Icon Blocks */
+.et-ft-follow-title {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.et-ft-insta-item {
+  position: relative;
+  width: 65px;
+  height: 65px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.et-ft-insta-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.et-ft-insta-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(209, 122, 93, 0.7); /* Translucent coral overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1; /* Keeping it consistently active like screenshot */
+  font-size: 1.1rem;
+  color: white;
+  transition: background 0.3s;
+}
+.et-ft-insta-item:hover .et-ft-insta-overlay {
+  background: rgba(209, 122, 93, 0.9);
+}
+
+/* Individual Social Box Strip */
+.et-ft-social-icon {
+  width: 32px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.et-ft-social-icon:hover {
+  background-color: #ffffff;
+  color: #2e4a3b;
+}
+
+/* 5. Bottom Copyright / Meta Section */
+.et-ft-copyright, .et-ft-credits {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+.et-ft-copyright a, .et-ft-credits strong {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+}
+.et-ft-copyright a:hover {
+  text-decoration: underline;
+}
+
+/* --- Responsive Adaptations --- */
+@media (max-width: 991.98px) {
+  .et-ft-wrapper { padding: 40px 0 20px 0; }
+  .et-ft-main-heading { text-align: center; }
+  .et-ft-description { text-align: center; margin-bottom: 25px; }
+  .nt-section-title {
+    font-size: 2.1rem;
+        margin-bottom: 40px;
+  }
+  .exp-abt-content-col p{
+    padding:0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .et-ft-container { padding: 0 20px; }
+  .et-ft-nav-links { gap: 10px; }
+  .et-ft-nav-links li { width: 50%; text-align: center; }
+}

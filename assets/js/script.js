@@ -136,34 +136,44 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             facilityCols.forEach(col => col.classList.remove("adv-mobile-active"));
 
-            // Bind desktop hover states
+            // Strip any leftover listeners from columns
             facilityCols.forEach(col => {
                 col.removeEventListener("mouseenter", handleDesktopEnter);
                 col.removeEventListener("mouseleave", handleDesktopLeave);
-                col.addEventListener("mouseenter", handleDesktopEnter);
-                col.addEventListener("mouseleave", handleDesktopLeave);
+                
+                // Target inner desktop elements exclusively
+                const targets = col.querySelectorAll(".adv-thumb-wrapper, .adv-item-label");
+                targets.forEach(target => {
+                    // Pass the parent column context so data attributes can be read cleanly
+                    target.colContext = col; 
+                    target.removeEventListener("mouseenter", handleElementEnter);
+                    target.removeEventListener("mouseleave", handleElementLeave);
+                    target.addEventListener("mouseenter", handleElementEnter);
+                    target.addEventListener("mouseleave", handleElementLeave);
+                });
             });
         } else {
-            // Strip Desktop Listeners
+            // Strip Inner Desktop Element Listeners
             facilityCols.forEach(col => {
-                col.removeEventListener("mouseenter", handleDesktopEnter);
-                col.removeEventListener("mouseleave", handleDesktopLeave);
+                const targets = col.querySelectorAll(".adv-thumb-wrapper, .adv-item-label");
+                targets.forEach(target => {
+                    target.removeEventListener("mouseenter", handleElementEnter);
+                    target.removeEventListener("mouseleave", handleElementLeave);
+                });
             });
 
-            // Initialize strict unique single element observer for mobile
+            // Initialize strict unique single element observer for mobile (UNTOUCHED)
             if (!mobileObserver) {
                 const observerOptions = {
                     root: null,
-                    rootMargin: "-30% 0px -30% 0px", // Limits trigger zone cleanly to screen center strip
+                    rootMargin: "-30% 0px -30% 0px",
                     threshold: 0.15
                 };
 
                 mobileObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            // Strip any active states from other elements
                             facilityCols.forEach(c => c.classList.remove("adv-mobile-active"));
-                            // Apply exclusively to the current visible section
                             entry.target.classList.add("adv-mobile-active");
                         }
                     });
@@ -174,10 +184,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Desktop hover processing functions
-    function handleDesktopEnter() {
-        const targetBg = this.getAttribute("data-bg");
-        const targetTitle = this.getAttribute("data-desktop-title");
+    // Strict Element Hover Processing
+    function handleElementEnter() {
+        const parentCol = this.colContext;
+        if (!parentCol) return;
+
+        const targetBg = parentCol.getAttribute("data-bg");
+        const targetTitle = parentCol.getAttribute("data-desktop-title");
+
+        // Highlight the thumbnail image card specifically when hovering it or its matching label
+        parentCol.classList.add("adv-element-hovered");
 
         if (desktopBg && targetBg) {
             desktopBg.style.backgroundImage = `url('${targetBg}')`;
@@ -192,7 +208,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    function handleDesktopLeave() {
+    function handleElementLeave() {
+        const parentCol = this.colContext;
+        if (parentCol) {
+            parentCol.classList.remove("adv-element-hovered");
+        }
+
         if (desktopBg) {
             desktopBg.style.backgroundImage = defaultBg;
         }
@@ -205,6 +226,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 180);
         }
     }
+
+    // Old unused legacy structural callbacks cleaned safely
+    function handleDesktopEnter() {}
+    function handleDesktopLeave() {}
 
     // Initial setup running
     resetLayoutEngine();
@@ -305,4 +330,68 @@ document.addEventListener('DOMContentLoaded', function () {
         if (targetGrid) animationObserver.observe(targetGrid);
     });
 
+    const swiper = new Swiper('.tm-swiper', {
+      slidesPerView: 1.4,       /* Shows parts of neighboring cards on tiny screens */
+      centeredSlides: true,     /* Ensures active card stays dead center */
+      loop: true,               /* Endless scrolling carousel */
+      spaceBetween: 20,         /* Space between cards */
+      
+      // Arrow navigation assignments
+      navigation: {
+        nextEl: '.tm-next',
+        prevEl: '.tm-prev',
+      },
+      
+      // Responsive Breakpoints
+      breakpoints: {
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        992: {
+          slidesPerView: 3,     /* Displays exactly 3 items at a time on desktop layout */
+          spaceBetween: 40,
+        }
+      }
+    });
+
+    gsap.registerPlugin(ScrollTrigger);
+
+document.addEventListener("DOMContentLoaded", () => {
     
+    gsap.to(".cta-capsule-card", {
+        width: "100%",
+        maxWidth: "100%",
+        
+        // Flatten ALL corners completely on full expansion
+        borderRadius: "0px",
+        
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".cta-scroll-trigger",
+            start: "top 90%",       // Begins expanding shortly after entering viewport
+            end: "top 15%",         // Reaches full flat width before rolling up screen
+            scrub: 1.2              // Smooth fluid track interaction
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Changing the variable name to 'islandHeroSlider' prevents any 'already declared' conflicts
+    const islandHeroSlider = new Swiper('.isl-swiper-container', {
+      loop: true,
+      speed: 1000,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+      },
+      navigation: {
+        nextEl: '.isl-next-hook',
+        prevEl: '.isl-prev-hook',
+      },
+    });
+  });
