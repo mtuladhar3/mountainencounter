@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Encounter</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper 11 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+       1. GLOBAL HEADER SECTION (Responsive Navbar & Mobile Offcanvas)
+       ========================================================================== -->
+    <header class="explor-global-header">
+        <nav class="navbar navbar-expand-md">
+            <div class="navbar-container">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo-nobg.png" alt="Exploreza Logo">
+                </a>
+
+                <div class="mobile-controls d-flex d-md-none align-items-center gap-2">
+                    <div class="lang-selector-dropdown">
+                        <button class="lang-trigger-btn">
+                            <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                class="lang-flag" alt="English">
+                            <span class="lang-text">EN</span>
+                        </button>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#explorMobileMenu" aria-controls="explorMobileMenu">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+                <div class="collapse navbar-collapse" id="explorDesktopNavbar">
+                    <ul class="navbar-nav central-links">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Destinations</a>
+                            <ul class="custom-dropdown">
+                                <li><a href="#">Nepal</a></li>
+                                <li><a href="#">Tibet</a></li>
+                                <li><a href="#">Bhutan</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item mega-dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Trekking</a>
+                            <div class="trek-nav-panel">
+                                <div class="trek-nav-grid">
+                                    <div class="trek-nav-branding">
+                                        <h3 class="trek-brand-header">Trekking</h3>
+                                    </div>
+                                    <div class="trek-nav-selection">
+                                        <ul class="trek-destination-list">
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800"
+                                                    data-trek-name="Langtang Valley Trek" data-duration="9 Days"
+                                                    data-level="Moderate" data-elev="3,870m">Langtang Region</a></li>
+                                            <li><a href="#" class="trek-destination-item trek-item-active"
+                                                    data-peak-view="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                    data-trek-name="Everest Base Camp & Gokyo Lakes"
+                                                    data-duration="19 Days" data-level="Strenuous"
+                                                    data-elev="5,545m">Everest Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800"
+                                                    data-trek-name="Kanchenjunga Circuit Trek" data-duration="21 Days"
+                                                    data-level="Hard" data-elev="5,140m">Kanchenjunga Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800"
+                                                    data-trek-name="Around Dhaulagiri Trek" data-duration="18 Days"
+                                                    data-level="Hard" data-elev="5,360m">Dhaulagiri Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800"
+                                                    data-trek-name="Makalu Base Camp Odyssey" data-duration="22 Days"
+                                                    data-level="Strenuous" data-elev="5,106m">Makalu Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="assets/images/image_887dca.jpg"
+                                                    data-trek-name="Annapurna Sanctuary Trek" data-duration="14 Days"
+                                                    data-level="Moderate" data-elev="4,130m">Annapurna Region</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800"
+                                                    data-trek-name="Manaslu Circuit Trek" data-duration="16 Days"
+                                                    data-level="Strenuous" data-elev="5,160m">Manaslu Region</a></li>
+                                            <li class="trek-global-link"><a href="#">View All Trekking</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="trek-nav-showcase">
+                                        <div class="trek-image-viewport">
+                                            <img class="trek-dynamic-image"
+                                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                alt="Scenery Preview">
+                                            <div class="trek-floating-card">
+                                                <span class="trek-card-label">Featured Trek:</span>
+                                                <h4 class="trek-card-title">Everest Base Camp & Gokyo Lakes</h4>
+                                                <p class="trek-card-specs"><span id="trek-stat-days">19 Days</span> |
+                                                    <span id="trek-stat-diff">Strenuous</span>
+                                                </p>
+                                                <a href="#" class="trek-card-action">Explore Itinerary &rarr;</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mega-dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Expedition</a>
+                            <div class="trek-nav-panel">
+                                <div class="trek-nav-grid">
+                                    <div class="trek-nav-branding">
+                                        <h3 class="trek-brand-header">Expedition</h3>
+                                    </div>
+                                    <div class="trek-nav-selection">
+                                        <ul class="trek-destination-list">
+                                            <li><a href="#" class="trek-destination-item trek-item-active"
+                                                    data-peak-view="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                    data-trek-name="Island Peak Climbing" data-duration="14 Days"
+                                                    data-level="Strenuous" data-elev="6,189m">8000m Peaks</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1505245208761-ba872912fac0?q=80&w=800"
+                                                    data-trek-name="Mera Peak Climbing" data-duration="17 Days"
+                                                    data-level="Moderate" data-elev="6,476m">7000m Peaks</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=800"
+                                                    data-trek-name="Lobuche East Climbing" data-duration="15 Days"
+                                                    data-level="Strenuous" data-elev="6,119m">6000m Peaks</a></li>
+                                            <li><a href="#" class="trek-destination-item"
+                                                    data-peak-view="https://images.unsplash.com/photo-1539635278303-d4002c07eae3?q=80&w=800"
+                                                    data-trek-name="Yala Peak Expedition" data-duration="11 Days"
+                                                    data-level="Easy" data-elev="5,520m">5000m Peaks</a></li>
+                                            <li class="trek-global-link"><a href="#">View All Expeditions</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="trek-nav-showcase">
+                                        <div class="trek-image-viewport">
+                                            <img class="trek-dynamic-image"
+                                                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=800"
+                                                alt="Expedition Preview">
+                                            <div class="trek-floating-card">
+                                                <span class="trek-card-label">Featured Peak:</span>
+                                                <h4 class="trek-card-title">Island Peak Climbing</h4>
+                                                <p class="trek-card-specs"><span id="trek-stat-days">14 Days</span> |
+                                                    <span id="trek-stat-diff">Strenuous</span>
+                                                </p>
+                                                <a href="#" class="trek-card-action">Explore Itinerary &rarr;</a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
+
+                        <li class="nav-item dropdown-wrapper">
+                            <a class="nav-link dropdown-toggle" href="#">Company</a>
+                            <ul class="custom-dropdown">
+                                <li><a href="#">About Us</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Reviews</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+
+                    <div class="desktop-cta d-none d-md-flex">
+                        <div class="lang-selector-dropdown">
+                            <button class="lang-trigger-btn">
+                                <img src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                    class="lang-flag" alt="English">
+                                <span class="lang-text">EN</span>
+                            </button>
+                            <ul class="lang-dropdown-menu">
+                                <li><a href="#en" class="lang-option active"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1fa-1f1f8.svg"
+                                            class="lang-flag" alt="English"> <span>English</span></a></li>
+                                <li><a href="#es" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1ea-1f1f8.svg"
+                                            class="lang-flag" alt="Español"> <span>Español</span></a></li>
+                                <li><a href="#fr" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1eb-1f1f7.svg"
+                                            class="lang-flag" alt="Français"> <span>Français</span></a></li>
+                                <li><a href="#de" class="lang-option"><img
+                                            src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/1f1e9-1f1ea.svg"
+                                            class="lang-flag" alt="Deutsch"> <span>Deutsch</span></a></li>
+                            </ul>
+                        </div>
+                        <a href="/booking" class="explor-btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="explorMobileMenu"
+            aria-labelledby="explorMobileMenuLabel">
+            <div class="offcanvas-header">
+                <img src="assets/images/logo-nobg.png" class="side-logo">
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="mobile-nav-links mb-4">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileCompanyDropdown" aria-expanded="false">
+                                Destinations
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileCompanyDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">Nepal</a></li>
+                                    <li><a class="nav-link py-1" href="#">Tibet</a></li>
+                                    <li><a class="nav-link py-1" href="#">Bhutan</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileTrekDropdown" aria-expanded="false">
+                                Trekking
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileTrekDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link " href="#">Langtang Region</a></li>
+                                    <li><a class="nav-link " href="#">Everest Region</a></li>
+                                    <li><a class="nav-link " href="#">Kanchenjunga Region</a></li>
+                                    <li><a class="nav-link " href="#">Dhaulagiri Region</a></li>
+                                    <li><a class="nav-link " href="#">Makalu Region</a></li>
+                                    <li><a class="nav-link " href="#">Annapurna Region</a></li>
+                                    <li><a class="nav-link " href="#">Manaslu Region</a></li>
+                                    <li><a class="nav-link  fw-bold " href="#">View All Trekking</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileExpDropdown" aria-expanded="false">
+                                Expedition
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileExpDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">8000m Peaks</a></li>
+                                    <li><a class="nav-link py-1" href="#">7000m Peeaks</a></li>
+                                    <li><a class="nav-link py-1" href="#">6000m Peeaks</a></li>
+                                    <li><a class="nav-link py-1" href="#">5000m Peeaks</a></li>
+                                    <li><a class="nav-link py-1 fw-bold" href="#">View All Expeditions</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Adventure</a></li>
+
+                        <li class="nav-item mobile-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="collapse"
+                                data-bs-target="#mobileCompanyDropdown" aria-expanded="false">
+                                Company
+                            </a>
+                            <div class="collapse mobile-submenu ps-3" id="mobileCompanyDropdown">
+                                <ul class="navbar-nav list-unstyled pt-1">
+                                    <li><a class="nav-link py-1" href="#">About Us</a></li>
+                                    <li><a class="nav-link py-1" href="#">Tours</a></li>
+                                    <li><a class="nav-link py-1" href="#">Reviews</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="mobile-cta border-top pt-3">
+                    <a href="/booking" class="explor-btn-book w-100 text-center">Booking</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <section class="breadcrumb-tours-section">
+    
+    <div class="breadcrumb-tours-overlay"></div>
+
+    <div class="container h-100 position-relative" style="z-index: 2;">
+      <div class="row h-100 align-items-end align-items-md-center pb-5 pb-md-0">
+        
+        <div class="col-12 col-md-7 col-lg-7 text-start mb-4 mb-md-0">
+          <h2 class="breadcrumb-tours-title">
+            Everest Region
+          </h2>
+        </div>
+        
+        <div class="col-12 col-md-12 col-lg-12 d-flex align-items-end justify-content-end text-start ">
+          <p>
+           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam error recusandae nihil dolorum ipsa, consectetur neque vero dolore. Vitae reprehenderit earum repudiandae debitis velit consequuntur obcaecati veniam voluptates autem fugit nemo, atque placeat temporibus reiciendis cumque sunt at quod architecto modi ea numquam recusandae neque. Aperiam, dolore. Facilis vero voluptatem libero magni consectetur adipisci perspiciatis, minima nemo ullam explicabo esse fuga at. Autem beatae quidem, hic voluptatibus illum odit! Id, temporibus, eum doloremque eos, ipsum minus nostrum iste dolores labore quaerat eligendi laudantium ea sed dolor. Atque nihil modi consequatur ducimus beatae hic at vitae iure? Maxime ex sunt sit.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="ets-tours-section" >
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                <div class="ets-tour-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="ets-card-title">Kathmandu Cultural</h3>
+                        <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                    </div>
+                    <p class="ets-card-desc">Explore ancient UNESCO heritage sites, historic palaces, and vibrant
+                        local markets.</p>
+                    <div class="ets-card-meta d-flex justify-content-between">
+                        <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 3 Days</span>
+                        <span class="ets-meta-item">From 450$</span>
+                    </div>
+                    <div class="ets-card-img-wrapper">
+                        <img src="assets/images/7.jpg"
+                            alt="Kathmandu Cultural" class="ets-card-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                <div class="ets-tour-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="ets-card-title">Pokhara Lakeside</h3>
+                        <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                    </div>
+                    <p class="ets-card-desc">Relax by Fewa Lake and witness stunning sunrise views over the
+                        Annapurna range.</p>
+                    <div class="ets-card-meta d-flex justify-content-between">
+                        <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 4 Days</span>
+                        <span class="ets-meta-item">From 600$</span>
+                    </div>
+                    <div class="ets-card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1528127269322-539801943592?auto=format&fit=crop&w=600&q=80"
+                            alt="Pokhara Lakeside" class="ets-card-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300" data-aos-once="true">
+                <div class="ets-tour-card">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h3 class="ets-card-title">Chitwan Wildlife</h3>
+                        <a href="#" class="ets-arrow-diagonal">&#x2197;</a>
+                    </div>
+                    <p class="ets-card-desc">Discover exotic wildlife, including one-horned rhinos and Bengal tigers
+                        in the wild.</p>
+                    <div class="ets-card-meta d-flex justify-content-between">
+                        <span class="ets-meta-item"><span class="ets-icon">&#x1F552;</span> 3 Days</span>
+                        <span class="ets-meta-item">From 350$</span>
+                    </div>
+                    <div class="ets-card-img-wrapper">
+                        <img src="assets/images/8.jpg"
+                            alt="Chitwan Wildlife" class="ets-card-img">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+    <section class="cta-content-wrapper d-flex align-items-start justify-content-center" >
+
+    <div class="cta-media-bg" style="background-image: url('assets/images/cta-black.jpg');"></div>
+
+    <div class="container position-relative z-3 px-4 pt-5" data-aos="zoom-out" data-aos-duration="1200" data-aos-once="true">
+        <h2 class="display-4 fw-bold mb-4">Ready to Explore?<br>Get in Touch Today</h2>
+        <a href="#" class="explor-btn-book">Book your seats</a>
+    </div>
+
+</section>
+
+    <footer class="et-ft-wrapper">
+        <div class="container-fluid et-ft-container">
+            <div class="row">
+            <div class="col-12">
+                <div class="header-container d-flex flex-row align-items-center justify-content-center justify-content-lg-center gap-3 gap-md-4 text-center">
+                    <p class="text-side mb-0">Mountain</p>
+            
+                    <div class="logo-wrapper">
+                        <img src="assets/images/logo-notext.png" alt="Logo" class="img-fluid">
+                    </div>
+            
+                    <p class="text-side mb-0">Encounter</p>
+                </div>
+            </div>
+        </div><hr class="et-ft-divider top-footer">
+
+            <div class="row et-ft-main-row align-items-start py-4">
+                <div class="col-lg-5 mb-5 mb-lg-0 text-center text-lg-start">
+                    <div
+                        class="et-ft-headline-wrap d-flex flex-column flex-sm-row align-items-center justify-content-center justify-content-lg-start">
+                        <h2 class="et-ft-main-heading">Plan Your </h2>
+                        <div class="et-ft-inline-img-box ms-sm-3 my-2 my-sm-0">
+                            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=300"
+                                alt="Landscape" class="img-fluid">
+                        </div>
+                    </div>
+                    <h2 class="et-ft-main-heading text-center text-lg-start"> Perfect Getaway</h2>
+
+                    <p class="et-ft-description mt-4 mx-auto mx-lg-0">
+                        Express Travel specializes in efficient booking services and crafting personalized itineraries
+                        for seamless and unforgettable travel experiences.
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h3 class="fw-bold mb-3 h4">Quick Links</h3>
+                    <ul class="d-grid list-unstyled footer-expeditions-list"
+                        style="grid-template-columns: repeat(2, 1fr);">
+                        <li><a href="#" class="text-white text-decoration-none">About</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Destinations</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Expeditions</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Tekkings</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Adventure</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Blog</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Tours</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 d-flex flex-column align-items-md-end">
+                    <div>
+                        <h3 class="fw-bold mb-4 h4">Contact Info</h3>
+
+                        <div class="d-flex flex-column gap-3 mb-3">
+                            <div class="d-flex align-items-start gap-3">
+                                <div class="contact-icon-circle flex-shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <span class="fs-6 opacity-90"> Kathmandu, Nepal</span>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="contact-icon-circle flex-shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <a href="tel:+977-9801324567"
+                                    class="text-white text-decoration-none fs-6 opacity-90">+977-9801324567</a>
+                            </div>
+
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="contact-icon-circle flex-shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <a href="mailto:info@mountainencounter.com"
+                                    class="text-white text-decoration-none fs-6 opacity-90">info@mountainencounter.com</a>
+                            </div>
+                        </div>
+                        <!-- <hr class="et-ft-divider"> -->
+
+                    </div>
+
+                </div>
+            </div>
+
+            <hr class="et-ft-divider">
+
+            <div class="row et-ft-bottom-row py-3 align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                    <p class="et-ft-copyright mb-0">Copyright &copy; 2026 Mountain Encounter. All Rights Reserved.
+                        Developed By <a href="#">Webtech Nepal</a></p>
+                </div>
+                <div class="col-md-6 text-center text-md-end mb-2 mb-md-0">
+                    <div class="et-ft-social-strip d-flex justify-content-center justify-content-lg-end gap-2 ">
+                        <a href="#" class="et-ft-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="et-ft-social-icon"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" class="et-ft-social-icon"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="et-ft-social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="et-ft-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+
+    
+    <!-- Dependencies JS Assets -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447"
+        integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ=="
+        data-cf-beacon='{"version":"2024.11.0","token":"3063ea3f6fcd4efea0f2e34f59156c66","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

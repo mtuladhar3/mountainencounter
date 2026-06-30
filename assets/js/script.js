@@ -366,3 +366,94 @@ document.addEventListener('DOMContentLoaded', function () {
       },
     });
   });
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const footerSection = document.querySelector('.et-ft-wrapper');
+        const headerContainer = document.querySelector('.header-container');
+
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.15 // Triggers when 15% of the footer is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 1. Add the class to run the animation when scrolling IN
+                    headerContainer.classList.add('animate');
+                } else {
+                    // 2. Remove the class when it scrolls OUT so it can animate again next time!
+                    headerContainer.classList.remove('animate');
+                }
+            });
+        }, observerOptions);
+
+        if (footerSection) {
+            observer.observe(footerSection);
+        }
+    });
+    
+
+    // This initializes the library and ensures elements NEVER disappear when scrolling past
+  AOS.init({
+    once: false,      // CRITICAL: Animates only once; will never disappear or reset
+    duration: 1000,  // Animation duration in milliseconds
+    easing: 'ease-out-cubic',
+     mirror: true  
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    
+    // Start AOS for the structural fade-up
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out',
+        offset: 100,
+        once: false,   // Tells AOS that animations should not happen only once
+    mirror: true   // Forces elements to animate out and back in while scrolling past them
+    });
+
+    
+
+    // --- Counter Engine ---
+    const counters = document.querySelectorAll('.resort-glance-num');
+    
+    const runCounter = (counter) => {
+        const targetAttr = counter.getAttribute('data-target');
+        const target = parseInt(targetAttr, 10);
+        const hasPercent = targetAttr.includes('%') || counter.textContent.includes('%');
+        
+        let count = 0;
+        const speed = 30; 
+        const increment = Math.ceil(target / speed);
+
+        const updateCount = () => {
+            count += increment;
+            if (count < target) {
+                counter.textContent = count + (hasPercent ? '%' : '');
+                setTimeout(updateCount, 30);
+            } else {
+                counter.textContent = target + (hasPercent ? '%' : '');
+            }
+        };
+        updateCount();
+    };
+
+    // Trigger count when scrolled into view
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        counters.forEach(c => observer.observe(c));
+    } else {
+        counters.forEach(c => runCounter(c));
+    }
+});
+

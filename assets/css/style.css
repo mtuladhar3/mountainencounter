@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6,
    1. GLOBAL HEADER & NAVBAR LAYOUT
    ========================================================================== */
 .explor-global-header {
-    /* position: absolute; */
+    position: relative;
     top: 0;
     width: 100%;
     z-index: 1030;
@@ -117,12 +117,7 @@ h1, h2, h3, h4, h5, h6,
     position: relative;
 }
 
-.explor-global-header .dropdown-toggle::after {
-    margin-left: 0.35rem;
-    font-size: 0.7rem;
-    border: none;
-    vertical-align: middle;
-}
+
 
 .explor-global-header .custom-dropdown {
     position: absolute;
@@ -439,6 +434,7 @@ h1, h2, h3, h4, h5, h6,
     align-items: center;
     padding: 1.5rem;
     border-bottom: 1px solid rgba(108, 117, 125, 0.2);
+    background-color: #002039;
 }
 
 .explor-global-header .offcanvas-title {
@@ -446,7 +442,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .explor-global-header .btn-close {
-    /* filter: invert(1) grayscale(1) brightness(2); */
+    filter: invert(1) grayscale(1) brightness(2);
     box-shadow: none;
     /* color:#000; */
     /* background: transparent; */
@@ -455,7 +451,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .explor-global-header .offcanvas-body {
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -766,6 +762,9 @@ h1, h2, h3, h4, h5, h6,
     .side-logo{
         max-width: 100px;
     }
+    .list-unstyled li a {
+        font-size: 14px;
+    }
   }
 /* ==========================================================================
    ABOUT US SECTION
@@ -1000,11 +999,22 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .explor-global-header .dropdown-toggle::after {
-    /* content: '▾'; */
-    margin-left: 0.35rem;
-    font-size: 0.7rem;
-    border: none;
-    vertical-align: middle;
+    content: "" !important; /* Clears out the font character code entirely */
+    position: absolute !important;
+    right: 25px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important; /* Centers it perfectly */
+    display: none;
+    /* Image Specs */
+    width: 14px !important;
+    height: 14px !important;
+    /* Clean inline SVG chevron arrow matching your image design */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='2.5' stroke='%230b1528'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='m19.5 8.25-7.5 7.5-7.5-7.5' /%3E%3C/svg%3E") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border: none !important;
+    transition: transform 0.25s ease !important; /* Smooth arrow flip animation */
 }
 
 .explor-global-header .custom-dropdown {
@@ -1056,7 +1066,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .explor-global-header .offcanvas-body {
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
     display: flex;
     flex-direction: column;
     overflow-y: auto;
@@ -1681,6 +1691,9 @@ h1, h2, h3, h4, h5, h6,
         width: 170px;
         height: 170px;
     }
+    .explor-global-header .dropdown-toggle::after {
+        display: block;
+    }
 }
 
 /* Counter */
@@ -1754,9 +1767,9 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Highlight active item colors on hover */
-.resort-glance-col:hover .resort-glance-num {
+/* .resort-glance-col:hover .resort-glance-num {
     color: rgba(211, 115, 94, 0.35);
-}
+} */
 
 .resort-glance-lbl {
     font-size: 16px;
@@ -3374,7 +3387,7 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
       position: relative;
       width: 100%;
       min-height: 450px;
-      background-image: url('../images/Travel.webp');
+      background-image: url('../images/testi.jpg');
       background-size: cover;
       background-position: center bottom;
       background-repeat: no-repeat;
@@ -3601,7 +3614,8 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
 .cta-content-wrapper {
     position: relative;
     width: 100%;
-    height: 100%;
+    z-index: 10;
+    height: 100vh;
     text-align: center;
 }
 
@@ -3612,7 +3626,7 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
     left: 0;
     width: 100%;
     height: 100%;
-    background-size: cover;
+    background-size: auto;
     background-position: center;
     z-index: 1;
 }
@@ -3643,10 +3657,11 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
 
 /* Theme Colors & Font Configurations */
 .et-ft-wrapper {
-  background-color: #002039; /* Dark Forest Green Background */
+  background-color: #000; /* Dark Forest Green Background */
   color: #ffffff;
-  padding: 60px 0 20px 0;
+  padding: 100px 0 20px 0;
   overflow: hidden;
+  position: relative;
 }
 
 .et-ft-container {
@@ -3883,4 +3898,443 @@ background: linear-gradient(180deg, rgb(0 32 57 / 10%) 20%, rgb(255, 255, 255) 6
 }
 .footer-expeditions-list li{
     line-height: 3;
+}
+
+/* --- FIXED LAYOUT & ANIMATION STYLES --- */
+
+.header-container {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom:50px;
+}
+
+.et-ft-divider.top-footer{
+    padding: 50px 0;
+}
+
+/* Fluid, responsive text sizes so they don't break onto two lines */
+.header-container .text-side {
+    font-size: calc(1.3rem + 4vw); /* Smooth sizing from mobile to desktop */
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateY(15px);
+    color: #ffffff; /* Make sure it stands out against black background */
+}
+
+/* Fixed size box for the logo that handles the scale expansion */
+.header-container .logo-wrapper {
+    width: calc(60px + 10vw);  /* Dynamically scales based on viewport */
+    height: calc(60px + 10vw); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Keeps it from being squished by text */
+    opacity: 0;
+    transform: scale(0.3);
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+}
+
+/* Forces image to scale perfectly within wrapper boundaries */
+.header-container .logo-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Prevents stretching and cropping */
+}
+
+/* --- Trigger States (Activated via JS Intersection Observer) --- */
+.header-container.animate .logo-wrapper {
+    animation: geometricReveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+}
+
+.header-container.animate .text-side {
+    animation: textFadeIn 1s ease-out 0.8s forwards;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes geometricReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+    40% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+}
+
+@keyframes textFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   MOBILE ACCORDION NAV FIXES (Applied inside Bootstrap mobile break)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    /* Main links spacing and structural borders */
+    .navbar-nav.central-links {
+        padding: 1rem 0;
+    }
+
+    .navbar-nav.central-links .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Clean separating line */
+        width: 100%;
+    }
+
+    .navbar-nav.central-links .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Pushes the plus icon to the absolute right */
+        padding: 12px 16px !important;
+        color: #ffffff;
+        font-size: 1.1rem;
+    }
+    a.nav-link.dropdown-toggle
+ {
+    position: relative;
+}
+
+    /* --- THE PROGRESSIVE PLUS ICON DESIGN --- */
+    .mega-dropdown-wrapper .dropdown-toggle::after,
+    .dropdown-wrapper .dropdown-toggle::after {
+        content: '+'; /* Default state indicator */
+        font-family: sans-serif;
+        font-size: 1.4rem;
+        font-weight: 300;
+        border: none;
+        margin: 0;
+        vertical-align: middle;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+        transform-origin: center;
+    }
+
+    /* Rotates the pseudo-element and morphs the action when active */
+    .mega-dropdown-wrapper.open-accordion > .dropdown-toggle::after,
+    .dropdown-wrapper.open-accordion > .dropdown-toggle::after {
+        transform: rotate(45deg); /* Forms a clean interactive close cross */
+        color: #ff4a1a; /* Highlight tracking color matching your style */
+    }
+
+    /* --- INNER ACCORDION SLIDE ELEMENTS --- */
+    .trek-nav-panel, 
+    .custom-dropdown {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+
+    /* Open classes appended natively via JS */
+    .mega-dropdown-wrapper.open-accordion .trek-nav-panel,
+    .dropdown-wrapper.open-accordion .custom-dropdown {
+        max-height: 800px; /* Large enough threshold bounding box to hold content cleanly */
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Formatting inside the nested mobile lists */
+    .trek-nav-grid {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 16px;
+    }
+
+    .trek-nav-branding, .trek-nav-showcase {
+        display: none !important; /* Hide massive image showcases on compact phones */
+    }
+
+    .trek-destination-list {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    .trek-destination-list li, .custom-dropdown li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .trek-destination-list li:last-child, .custom-dropdown li:last-child {
+        border-bottom: none;
+    }
+
+    .trek-destination-item, .custom-dropdown a {
+        display: block;
+        padding: 10px 12px;
+        color: rgba(255, 255, 255, 0.7) !important;
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+    li.nav-item
+ {
+    padding: 10px 0px;
+    border-bottom: 1px solid #e7e7e7;
+}
+}
+
+
+
+
+/* --- Banner Section (Sits naturally at top, image is fixed) --- */
+.breadcrumb-tours-section {
+  position: relative; /* Restores standard document flow */
+  width: 100%;
+  height: 90vh;
+  
+  /* Points to your local image file */
+  background-image: url('../images/1.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  /* This is the magic key: fixes the image position relative to the viewport, 
+     creating the parallax/fixed look inside the 90vh boundary */
+  background-attachment: fixed; 
+  
+  overflow: hidden;
+}
+
+/* --- Dedicated Overlay Style --- */
+.breadcrumb-tours-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  z-index: 1;
+  pointer-events: none; 
+}
+
+/* --- Left Title Typography --- */
+.breadcrumb-tours-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #ffffff;
+  font-size: calc(2.2rem + 2.5vw); 
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+/* --- Right Description Typography --- */
+.breadcrumb-tours-section p{
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 700px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  margin: 0;
+}
+
+/* --- Responsive Layout Optimization --- */
+@media (max-width: 767.98px) {
+  .breadcrumb-tours-section {
+    height: 85vh; 
+    /* Mobile devices often struggle with background-attachment: fixed; 
+       This fallback keeps it looking perfect on iOS/Android */
+    background-attachment: scroll; 
+  }
+  
+  .breadcrumb-tours-subtext {
+    max-width: 100%;
+    font-size: 0.9rem;
+  }
+}
+/* --- Separate Section Wrapper --- */
+.ebc-info-section {
+  padding: 60px 0;
+  background-color: #f8f9fa; /* Soft background to separate it from other sections */
+  width: 100%;
+}
+
+/* --- Content Card White Box --- */
+.ebc-info-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+      margin-top: -215px;
+    position: relative;
+}
+
+/* --- Category Badge --- */
+.ebc-info-badge {
+  background: linear-gradient(90deg, #ff5e36, #ffa136);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  padding: 6px 22px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+
+/* --- Graphic Divider Line --- */
+.ebc-info-line {
+  height: 1px;
+  background-color: #e5e5e5;
+  flex-grow: 1;
+  max-width: 320px;
+}
+
+/* --- Overlapping Team Avatars --- */
+.ebc-info-avatar-group {
+  display: flex;
+  align-items: center;
+}
+
+.ebc-info-avatar-group img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  margin-left: -12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.ebc-info-avatar-group img:first-child {
+  margin-left: 0;
+}
+
+/* --- Section Heading Typography --- */
+.ebc-info-title {
+  font-weight: 600;
+  font-style: italic;
+  color: #0b3c32; /* Deep jungle accent color */
+  font-size: calc(2.2rem + 1vw);
+  margin-bottom: 20px;
+  line-height: 1.15;
+}
+
+/* --- Content Subtext --- */
+.ebc-info-desc {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #555555;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 640px;
+  margin: 0;
+}
+
+/* --- Media Container Elements --- */
+.ebc-info-media-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.ebc-info-feature-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Floating Rating Stars overlay --- */
+.ebc-info-rating-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: #ffffff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 3px;
+  z-index: 2;
+}
+
+.ebc-info-rating-badge i {
+  color: #ff8c00;
+  font-size: 0.75rem;
+}
+
+/* --- Mobile Responsiveness Adjustments --- */
+@media (max-width: 991.98px) {
+  .ebc-info-card {
+    padding: 24px;
+  }
+  
+  .ebc-info-feature-img {
+    height: 250px;
+  }
+}
+
+/* --- New Featured Tag --- */
+.ebc-featured-badge {
+  background-color: #0066cc; /* Solid bold blue color matching your reference snippet */
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  padding: 5px 14px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* --- Location Text Layout --- */
+.ebc-location-text {
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  background-color: #2b303a; /* Dark background contrasting element */
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+.ebc-features-bar {
+  border-top: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
+  padding: 15px 0;
+}
+
+.ebc-feature-item {
+  position: relative;
+  border-right: 1px solid #ededed;
+}
+
+.ebc-feature-item.last {
+  border-right: none;
+}
+
+.ebc-icon-box {
+  font-size: 1.35rem;
+  color: #212529;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ebc-feature-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #212529;
+  margin: 0;
+}
+
+.ebc-feature-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin: 0;
 }
