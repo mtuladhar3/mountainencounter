@@ -457,3 +457,113 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
+
+document.addEventListener('DOMContentLoaded', function () {
+            // Handles explicit scroll tracking configurations if fallback initialization is required
+            var scrollSpyContent = document.body;
+            var spyInstance = bootstrap.ScrollSpy.getInstance(scrollSpyContent);
+            if(!spyInstance) {
+               new bootstrap.ScrollSpy(scrollSpyContent, {
+                    target: '#trek-scroll-spy-nav',
+                    offset: 85
+                });
+            }
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+    const navbar = document.getElementById("js-sticky-trigger");
+    const sidebar = document.getElementById("js-sidebar-sticky");
+    
+    // Tracks the main content column wrapper to know when to stop sticking
+    const sidebarParentColumn = sidebar ? sidebar.parentElement : null;
+    // Tracks the overall main row container (or left-hand column) to calculate the bottom boundary
+    const mainRowContainer = sidebarParentColumn ? sidebarParentColumn.parentElement : null;
+
+    const quickInfo = document.querySelector('.quick-info');
+    const leftColumn = document.querySelector('.col-lg-8.col-12');
+    const sidebarStickyPoint = sidebar ? sidebar.offsetTop - 90 : 0; 
+
+    function updateStickyNavbar(scrolledDistance) {
+        if (!navbar || !quickInfo || !leftColumn) return;
+
+        const quickInfoBottom = quickInfo.getBoundingClientRect().bottom + window.pageYOffset;
+        const leftColumnBottom = leftColumn.getBoundingClientRect().bottom + window.pageYOffset;
+        const triggerPoint = quickInfoBottom;
+        const stopPoint = leftColumnBottom - 1;
+        const shouldStick = scrolledDistance >= triggerPoint && scrolledDistance < stopPoint;
+
+        if (shouldStick) {
+            if (!navbar.classList.contains("is-stuck")) {
+                navbar.classList.add("is-stuck");
+            }
+            document.body.style.paddingTop = navbar.offsetHeight + "px";
+        } else {
+            if (navbar.classList.contains("is-stuck")) {
+                navbar.classList.remove("is-stuck");
+            }
+            document.body.style.paddingTop = "0px";
+        }
+    }
+
+    window.addEventListener("scroll", function () {
+        const scrolledDistance = window.pageYOffset || document.documentElement.scrollTop;
+
+        // 1. Navbar Dynamic Control
+        if (navbar) {
+            updateStickyNavbar(scrolledDistance);
+        }
+
+        // 2. Sidebar Boundary-Aware Control (Desktop Viewports Only)
+        if (sidebar && sidebarParentColumn && mainRowContainer && window.innerWidth >= 992) {
+            const parentWidth = sidebarParentColumn.clientWidth - parseFloat(window.getComputedStyle(sidebarParentColumn).paddingLeft) - parseFloat(window.getComputedStyle(sidebarParentColumn).paddingRight);
+            
+            // Get the live positions of the row boundaries
+            const rowRect = mainRowContainer.getBoundingClientRect();
+            const sidebarHeight = sidebar.offsetHeight;
+            const topOffset = 90; // Spacing below your fixed navigation bar
+
+            // Condition A: Scrolled past the start point, but still room before the bottom boundary
+            if (scrolledDistance >= sidebarStickyPoint && rowRect.bottom > (sidebarHeight + topOffset)) {
+                sidebar.classList.remove("is-sidebar-absolute");
+                sidebar.classList.add("is-sidebar-stuck");
+                sidebar.style.width = parentWidth + "px";
+                sidebar.style.top = topOffset + "px";
+                sidebar.style.bottom = "auto";
+            } 
+            // Condition B: Reached the absolute bottom limit of the content section
+            else if (rowRect.bottom <= (sidebarHeight + topOffset)) {
+                sidebar.classList.remove("is-sidebar-stuck");
+                sidebar.classList.add("is-sidebar-absolute");
+                sidebar.style.width = parentWidth + "px";
+                sidebar.style.top = "auto";
+                sidebar.style.bottom = "0px"; // Pin cleanly at the very bottom of its parent column
+            } 
+            // Condition C: Default state (At the top of the page)
+            else {
+                sidebar.classList.remove("is-sidebar-stuck", "is-sidebar-absolute");
+                sidebar.style.width = "100%";
+                sidebar.style.top = "auto";
+                sidebar.style.bottom = "auto";
+            }
+        }
+    });
+
+    // Recalculate correctly if window size shifts live
+    window.addEventListener("resize", function() {
+        window.dispatchEvent(new Event('scroll'));
+    });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const toggleBtn = document.getElementById("toggleItineraryViewAll");
+    if (!toggleBtn) return;
+
+    const hiddenItems = document.querySelectorAll(".itinerary-hidden");
+    toggleBtn.addEventListener("click", function () {
+        const expanded = toggleBtn.dataset.expanded === "true";
+        hiddenItems.forEach(item => item.classList.toggle("d-none", expanded));
+        toggleBtn.dataset.expanded = (!expanded).toString();
+        toggleBtn.textContent = expanded ? "View All 15 Days" : "Show Less";
+    });
+});
